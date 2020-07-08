@@ -106,7 +106,7 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
         }
 
         // Message de succès de connexion
-        //TODO: corriger l'erreur lors de la connexion
+        
         $this->session->getFlashBag()->add('success', 'Connexion réussie !');
 
          // Redirection de l'utilisateur connecté vers la page d'accueil, qui affichera le message de succès

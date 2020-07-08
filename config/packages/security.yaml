@@ -39,5 +39,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+    # Bloque l'accès à toutes les pages dont l'url commence par /admin uniquement aux compte ayant le role admin (donc toutes les routes du bundle easyadmin)
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        

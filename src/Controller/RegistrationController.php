@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
 
         // Redirige de force vers l'accueil si l'utilisateur est déjà connecté
         if ($this->getUser()) {
-            return $this->redirectToRoute('main_home');
+            return $this->redirectToRoute('home');
         }
 
         // Création d'un nouvel objet "User"
@@ -98,9 +98,6 @@ class RegistrationController extends AbstractController
                         ->htmlTemplate('registration/confirmation_email.html.twig')
                 );
                 // do anything else you need here, like send an email
-
-                // Envoi de l'email
-                
 
                 // Message flash de succès
                 $this->addFlash('success', 'Votre compte a été créé avec succès ! Un email vous a été envoyé pour activer votre compte.');
