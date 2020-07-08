@@ -14,6 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use DateTime;
+use App\Recaptcha\RecaptchaValidator;  // Importation de notre service de validation du captcha
+use Symfony\Component\Form\FormError;  // Importation de la classe permettant de créer des erreurs dans les formulaires
 
 class RegistrationController extends AbstractController
 {
@@ -29,7 +31,7 @@ class RegistrationController extends AbstractController
      * 
      * @Route("/creer-un-compte", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder,  RecaptchaValidator $recaptcha): Response
     {
 
         // Redirige de force vers l'accueil si l'utilisateur est déjà connecté
@@ -49,16 +51,15 @@ class RegistrationController extends AbstractController
         // Si le formulaire a été envoyé
         if ($form->isSubmitted()) {
 
-            // TODO: Recaptcha
             //Vérification que le captcha est valide
-            //$captchaResponse = $request->request->get('g-recaptcha-response', null);
+            $captchaResponse = $request->request->get('g-recaptcha-response', null);
 
             // Si le captcha est null ou si il est invalide, ajout d'une erreur générale sur le formulaire (qui sera considéré comme échoué après)
-            //if($captchaResponse == null || !$recaptcha->verify($captchaResponse, $request->server->get('REMOTE_ADDR'))){
+             if($captchaResponse == null || !$recaptcha->verify($captchaResponse, $request->server->get('REMOTE_ADDR'))){
 
                 // Ajout de l'erreur au formulaire
-                //$form->addError(new FormError('Veuillez remplir le Captcha de sécurité'));
-            //}
+                $form->addError(new FormError('Veuillez remplir le Captcha de sécurité'));
+            }
             
             if ($form->isValid()){
 
