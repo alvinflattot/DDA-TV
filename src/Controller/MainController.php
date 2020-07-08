@@ -13,7 +13,6 @@ class MainController extends AbstractController
      */
     public function index()
     {
-        
         // Cette page appellera la vue templates/main/index.html.twig
         return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController',

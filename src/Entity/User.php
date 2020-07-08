@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -70,6 +72,38 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=32)
      */
     private $activationToken;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Serie::class, inversedBy="followers")
+     * @ORM\JoinTable(name="user_serie_favorite")
+     */
+    private $favoriteSeries;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Movie::class, inversedBy="followers")
+     * @ORM\JoinTable(name="user_movie_favorite")
+     */
+    private $favoriteMovies;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Episode::class, inversedBy="watchers")
+     *  @ORM\JoinTable(name="user_episode_watched")
+     */
+    private $episodesWatched;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Movie::class, inversedBy="watchers")
+     * @ORM\JoinTable(name="user_movie_watched")
+     */
+    private $moviesWatched;
+
+    public function __construct()
+    {
+        $this->favoriteSeries = new ArrayCollection();
+        $this->favoriteMovies = new ArrayCollection();
+        $this->episodesWatched = new ArrayCollection();
+        $this->moviesWatched = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -229,6 +263,110 @@ class User implements UserInterface
     public function setActivationToken(string $activationToken): self
     {
         $this->activationToken = $activationToken;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Serie[]
+     */
+    public function getFavoriteSeries(): Collection
+    {
+        return $this->favoriteSeries;
+    }
+
+    public function addFavoriteSeries(Serie $favoriteSeries): self
+    {
+        if (!$this->favoriteSeries->contains($favoriteSeries)) {
+            $this->favoriteSeries[] = $favoriteSeries;
+        }
+
+        return $this;
+    }
+
+    public function removeFavoriteSeries(Serie $favoriteSeries): self
+    {
+        if ($this->favoriteSeries->contains($favoriteSeries)) {
+            $this->favoriteSeries->removeElement($favoriteSeries);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Movie[]
+     */
+    public function getFavoriteMovies(): Collection
+    {
+        return $this->favoriteMovies;
+    }
+
+    public function addFavoriteMovie(Movie $favoriteMovie): self
+    {
+        if (!$this->favoriteMovies->contains($favoriteMovie)) {
+            $this->favoriteMovies[] = $favoriteMovie;
+        }
+
+        return $this;
+    }
+
+    public function removeFavoriteMovie(Movie $favoriteMovie): self
+    {
+        if ($this->favoriteMovies->contains($favoriteMovie)) {
+            $this->favoriteMovies->removeElement($favoriteMovie);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Episode[]
+     */
+    public function getEpisodesWatched(): Collection
+    {
+        return $this->episodesWatched;
+    }
+
+    public function addEpisodesWatched(Episode $episodesWatched): self
+    {
+        if (!$this->episodesWatched->contains($episodesWatched)) {
+            $this->episodesWatched[] = $episodesWatched;
+        }
+
+        return $this;
+    }
+
+    public function removeEpisodesWatched(Episode $episodesWatched): self
+    {
+        if ($this->episodesWatched->contains($episodesWatched)) {
+            $this->episodesWatched->removeElement($episodesWatched);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Movie[]
+     */
+    public function getMoviesWatched(): Collection
+    {
+        return $this->moviesWatched;
+    }
+
+    public function addMoviesWatched(Movie $moviesWatched): self
+    {
+        if (!$this->moviesWatched->contains($moviesWatched)) {
+            $this->moviesWatched[] = $moviesWatched;
+        }
+
+        return $this;
+    }
+
+    public function removeMoviesWatched(Movie $moviesWatched): self
+    {
+        if ($this->moviesWatched->contains($moviesWatched)) {
+            $this->moviesWatched->removeElement($moviesWatched);
+        }
 
         return $this;
     }
