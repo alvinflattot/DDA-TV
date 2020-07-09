@@ -108,6 +108,24 @@ class AppFixtures extends Fixture
 
         }
 
+        // Création compte admin///////////////////////////////////////
+        $admin = new User();
+
+        // Hydratation du compte
+        $admin
+            ->setFirstname( 'bob' )
+            ->setLastname( 'lepatron' )
+            ->setEmail('admin@a.a')
+            ->setRegistrationDate( $faker->dateTimeBetween('-1 year', 'now') )
+            ->setRoles(["ROLE_ADMIN"])
+            ->setPassword($this->encoder->encodePassword($admin, 'aaaaaaaaA7/'))
+            ->setActivated(true)    // Compte activé
+            ->setActivationToken(md5( random_bytes(100) ))
+        ;
+
+        // Persistance du compte
+        $manager->persist($admin);
+
         //// Les utilisateurs /////////////////////////////////////////
         for($i = 0; $i < 10; $i++){
 
@@ -129,6 +147,8 @@ class AppFixtures extends Fixture
             $manager->persist($user);
  
         }
+
+        
 
         $manager->flush();
     }
