@@ -42,7 +42,7 @@ class Episode
     /**
      * @ORM\Column(type="datetime")
      */
-    private $reseaseDate;
+    private $releaseDate;
 
     /**
      * @ORM\ManyToOne(targetEntity=Season::class, inversedBy="episodes")
@@ -113,14 +113,14 @@ class Episode
         return $this;
     }
 
-    public function getReseaseDate(): ?\DateTimeInterface
+    public function getReleaseDate(): ?\DateTimeInterface
     {
-        return $this->reseaseDate;
+        return $this->releaseDate;
     }
 
-    public function setReseaseDate(\DateTimeInterface $reseaseDate): self
+    public function setReleaseDate(\DateTimeInterface $releaseDate): self
     {
-        $this->reseaseDate = $reseaseDate;
+        $this->releaseDate = $releaseDate;
 
         return $this;
     }

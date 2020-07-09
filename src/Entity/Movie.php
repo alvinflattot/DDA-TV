@@ -35,7 +35,7 @@ class Movie
     private $type;
 
     /**
-     * @ORM\Column(type="string", length=32)
+     * @ORM\Column(type="string", length=50)
      */
     private $poster;
 

@@ -35,7 +35,7 @@ class Serie
     private $summary;
 
     /**
-     * @ORM\Column(type="string", length=32, nullable=true)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $poster;
 
