@@ -8,11 +8,194 @@
 {% block body %}
 
     <div class="container-fluid">
-        
-        {# Titre h1 #}
+
+        <!--Navbar-->
+        <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <ul class="navbar-nav mr-auto">
+
+                <img class="logo ml-2" src="{{ asset('img/dda_logo.png') }}" alt="logo DDA TV">
+
+                <li class="nav-item">
+
+                    <p class="navbar-brand">DDA TV</p>
+
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav d-flex justify-content-end">
+
+                <li class="nav-item">
+
+                    <a class="nav-link" id="login" href="{{ path('home') }}" data-toggle="modal" data-target="#loginModal">Connexion</a>
+
+                    <div class="modal fade col-md-5 offset-sm-4" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <h2 class="modal-title" id="exampleModalLabel">Connexion</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body">
+                                    <form>
+
+                                        <div class="form-group">
+
+                                            <label for="form-email" class="col-form-label">Email :</label>
+                                            <input type="email" class="form-control" id="form-email" placeholder="Ton email ?">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="form-password" class="col-form-label">Mot de passe :</label>
+                                            <input type="password" class="form-control" id="form-password" placeholder="Ton mot de passe ?">
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <div class="modal-footer m-auto">
+
+                                    <button type="submit" class="btn">Connexion</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+
+
+                <li class="nav-item">
+
+                    <a class="nav-link" id="register" href="{{ path('home') }}" data-toggle="modal" data-target="#registerModal">Inscription</a>
+
+                    <div class="modal fade col-md-5 offset-sm-4" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <h2 class="modal-title" id="exampleModalLabel">Inscription</h2>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+
+                                </div>
+
+                                <div class="modal-body">
+                                    <form>
+
+                                        <div class="form-group ">
+
+                                            <label for="form-firstname" class="col-form-label">Prénom :</label>
+                                            <input type="text" class="form-control" id="form-firstname" placeholder="Ton prénom ?">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="form-lastname" class="col-form-label">Nom :</label>
+                                            <input type="text" class="form-control" id="form-lastname" placeholder="Ton nom ?">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="form-email" class="col-form-label">Email :</label>
+                                            <input type="email" class="form-control" id="form-email" placeholder="Ton email ?">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="form-password" class="col-form-label">Mot de passe :</label>
+                                            <input type="password" class="form-control" id="form-password" placeholder="Ton mot de passe ?">
+
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label for="form-confirm-password" class="col-form-label">Confirmation de mot de passe :</label>
+                                            <input type="password" class="form-control" id="form-confirm-password" placeholder="Ton mot de passe ?">
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                                <div class="modal-footer m-auto">
+
+                                    <button type="button" class="btn">Inscription</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <!--Sections-->
         <div class="row">
-            <h1 class="col-12 text-center my-5">Accueil </h1>
+            <section class="content col-12">
+
+            </section>
         </div>
+
+        <div class="row">
+            <section class="view col-12 text-center px-4 py-4">
+                <h1>Bienvenue sur DDA TV</h1>
+                <h2>Le site ou vous n'allez plus perdre le fil sur vos films et vos series !</h2>
+                <p class="pt-3">DDA TV est un site qui regroupe beaucoup de films et séries en tout genre.</p>
+                <p class="pt-2">Trouvez VOTRE nouvelle série ou nouveau film préféré, en lisant les fiches techniques contenues dans notre catalogue.</p>
+            </section>
+        </div>
+
+        <div class="row">
+            <section class="part col-12">
+
+            </section>
+        </div>
+
+
+        <!--Footer-->
+        <footer class="footer col-12 d-md-flex p-2 bd-highlight justify-content-md-center align-items-md-center">
+
+            <div class="row">
+
+                <div class="col-md-3 offset-md-2 pt-4">
+                    <a class="media justify-content-center align-items-center" href="contact.html">Contact</a>
+                </div>
+
+                <div class="col-md-7 pt-4">
+                    <a class="media justify-content-center align-items-center" href="#">Mentions légales</a>
+                </div>
+
+                <div class="col-md-12 pt-4">
+
+                    <p class="media justify-content-center align-items-center"><small>© 2020, DDA TV, WF3 students</small></p>
+
+                </div>
+
+            </div>
+
+        </footer>
 
     </div>
 
