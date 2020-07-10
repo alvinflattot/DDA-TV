@@ -1,0 +1,289 @@
+@font-face
+{
+    font-family : Broadway;
+    src: url('../fonts/Broadway.ttf');
+}
+
+
+@font-face
+{
+    font-family : JurassicPark-BL48;
+    src: url('../fonts/JurassicPark-BL48.ttf');
+}
+
+
+
+
+/*navbar*/
+.navbar>a
+{
+    margin-top: 20px;
+}
+
+
+.navbar-nav 
+{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    padding: 0 0 15px 0;
+}
+
+
+.navbar-brand 
+{
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+
+.navbar-nav .nav-link 
+{
+    padding-right: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+
+.navbar-dark .navbar-nav #login
+{
+    color: white;
+}
+
+
+.navbar-dark .navbar-nav #login:hover
+{
+    color: white;
+    text-decoration: underline 10px goldenrod;
+}
+
+
+.navbar-dark .navbar-nav #register
+{
+    color: white;
+    background-color: goldenrod;
+    border: 2px solid gray;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl 
+{
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.logo
+{
+    width: 50px;
+}
+
+
+/*section 1*/
+.content
+{
+    height: 300px;
+    background-image: url(../images/fond_mosaic_film.jpg);
+    background-size: cover;
+}
+
+
+/*section 2*/
+.view
+{
+    background-color: #868484;
+    color: rgb(10, 8, 8);
+}
+
+.view>h1
+{
+    text-shadow: 2px 2px 2px rgba(240, 240, 240, 0.6);
+    font-family: "Broadway";
+}
+
+.view>h2
+{
+    text-shadow: 2px 2px 2px rgba(240, 240, 240, 0.6);
+    font-family: "Broadway";
+}
+
+.view>p
+{
+    text-shadow: 2px 2px 2px rgba(240, 240, 240, 0.6);
+    font-family: "akbar";
+}
+
+/*section 3*/
+.part
+{
+    height: 450px;
+    background-image: url(../images/fond_mosaic_series.jpg);
+    background-size: cover;
+}
+
+
+/*footer*/
+.footer
+{
+    background-color: lightgray;
+    padding-bottom: 40px;
+}
+
+
+a:hover 
+{
+    color: black;
+    text-decoration: none;
+}
+
+
+.media
+{
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+
+/*interieur navbar*/
+.modal-footer>button
+{
+    background-color: goldenrod;
+}
+
+
+/*page 404*/
+.page-img
+{
+    background-image: url(../images/404.jpg);
+    height: 240px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.page-title
+{
+    color: red; 
+}
+
+
+.page-title>h5
+{
+    color: white; 
+    font-family: "JurassicPark-BL48", sans-serif;
+    font-size: 10rem;
+
+}
+
+
+.page-title>h1
+{
+    font-size: 10rem;
+    font-family: "JurassicPark-BL48", sans-serif;
+}
+
+
+.body
+{
+    background-color: black;
+}
+
+
+.error-page-title
+{
+    font-family: sans-serif;
+}
+
+
+/*media querie de la page 404*/
+@media screen and (min-width: 1600px)
+{
+    .page-img
+    {
+        height: 1000px;
+    }
+}
+
+
+@media screen and (min-width: 560px) and (max-width: 1200px)
+{
+    .page-img
+    {
+        height: 400px;
+    }
+}
+
+
+@media screen and (min-width: 800px) and (max-width: 1200px)
+{
+    .page-img
+    {
+        height: 600px;
+    }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1600px)
+{
+    .page-img
+    {
+        height: 800px;
+    }
+}
+
+
+@media screen and (min-width: 1700px) and (max-width: 1920px)
+{
+    .page-img
+    {
+        height: 1250px;
+    }
+}
+
+
+/*page contact*/
+.body-contact
+{
+    background-color: lightgray;
+    color: purple;
+}
+
+
+.form-title
+{
+    color: darkred;
+}
+
+
+.but
+{
+    color: goldenrod;
+    border: 2px white solid;
+    background-color: black;
+}
+
+
+.btn:hover {
+    color: red;
+    text-decoration: none;
+}
