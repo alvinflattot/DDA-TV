@@ -5,17 +5,11 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-<<<<<<< HEAD
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpKernel\Exception\HttpException;
-=======
 use App\Entity\Movie;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
->>>>>>> a925beb3d7d91fc1d60d14167d628e79de08eb6e
 
 class MainController extends AbstractController
 {
@@ -25,20 +19,16 @@ class MainController extends AbstractController
      */
     public function home()
     {
-<<<<<<< HEAD
         dump(5);
         // Cette page appellera la vue templates/main/home.html.twig
-=======
 
         // Cette page appellera la vue templates/main/index.html.twig
->>>>>>> a925beb3d7d91fc1d60d14167d628e79de08eb6e
         return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController',
         ]);
     }
 
     /**
-<<<<<<< HEAD
      * Test page 404
      * @Route("/404", name="err_404")
      */
@@ -49,18 +39,7 @@ class MainController extends AbstractController
     }
 
 
-=======
-     * Page d'accueil du site
-     * @Route("/home2", name="home_d")
-     */
-    public function indexDeDorian()
-    {
-
-        // Cette page appellera la vue templates/main/index.html.twig
-        return $this->render('main/home-dorian.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
-    }
+    
 
     /**
      * Page du catalogue
@@ -95,8 +74,18 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * Page de profil
+     *
+     * @Route("/mon-profil/", name="main_profil")
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function profil()
+    {
+        return $this->render('main/profil.html.twig');
+    }
+
 
 
     
->>>>>>> a925beb3d7d91fc1d60d14167d628e79de08eb6e
 }

@@ -4,8 +4,6 @@ twig:
     strict_variables: '%kernel.debug%'
     exception_controller: null
 
-<<<<<<< HEAD
-=======
      # Activation du thème Bootstrap 4 pour habiller les formulaires générés par Symfony sur le site
     form_themes: ['bootstrap_4_layout.html.twig']
 
@@ -13,4 +11,3 @@ twig:
     globals:
         site_name: 'DDA TV'
         google_recaptcha_site_key:  '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
->>>>>>> a925beb3d7d91fc1d60d14167d628e79de08eb6e
