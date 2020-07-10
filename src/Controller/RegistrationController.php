@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
 
         // Redirige de force vers l'accueil si l'utilisateur est déjà connecté
         if ($this->getUser()) {
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('catalogue');
         }
 
         // Création d'un nouvel objet "User"
@@ -104,8 +104,6 @@ class RegistrationController extends AbstractController
 
                 return $this->redirectToRoute('home');
             }
-
-            
         }
 
         // Appel de la vue en envoyant le formulaire à afficher

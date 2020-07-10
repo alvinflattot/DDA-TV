@@ -1,5 +1,5 @@
 {# Utilisation du squelette de page base.html.twig #}
-{% extends 'base.html.twig' %}
+{% extends 'base2.html.twig' %}
 
 {# le block title dans le squelette sera rempli avec le contenu de ce block #}
 {% block title %}Accueil{% endblock %}
@@ -9,7 +9,6 @@
 
     <div class="container-fluid">
 
-<<<<<<< HEAD
         <!--Navbar-->
         <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -29,7 +28,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" id="login" href="{{ path('home') }}" data-toggle="modal" data-target="#loginModal">Connexion</a>
+                    <a class="nav-link" id="login" href="{{ path('app_register') }}" data-toggle="modal" data-target="#loginModal">Connexion</a>
 
                     <div class="modal fade col-md-5 offset-sm-4" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -132,7 +131,7 @@
                                         </div>
 
                                     </form>
-
+                                    
                                 </div>
 
                                 <div class="modal-footer m-auto">
@@ -197,20 +196,6 @@
             </div>
 
         </footer>
-=======
-        {# Affichage des messages flashs de type "success" si il y en a #}
-        {% include 'partials/flashes/success.html.twig' %}
-        {# Affichage des messages flashs de type "error" si il y en a #}
-        {% include 'partials/flashes/error.html.twig' %}
-        
-        {# Titre h1 #}
-        <div class="row">
-            <h1 class="col-12 text-center my-5">Accueil </h1>
-
-        </div>
-
-        
->>>>>>> a925beb3d7d91fc1d60d14167d628e79de08eb6e
 
     </div>
 
