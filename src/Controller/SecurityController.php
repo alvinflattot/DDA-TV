@@ -23,7 +23,7 @@ class SecurityController extends AbstractController
     {
         // Redirection vers une autre page du site si l'utilisateur est déjà connecté.
         if ($this->getUser()) {
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('catalogue');
         }
 
         // get the login error if there is one

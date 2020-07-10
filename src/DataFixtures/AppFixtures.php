@@ -118,7 +118,7 @@ class AppFixtures extends Fixture
             ->setEmail('admin@a.a')
             ->setRegistrationDate( $faker->dateTimeBetween('-1 year', 'now') )
             ->setRoles(["ROLE_ADMIN"])
-            ->setPassword($this->encoder->encodePassword($admin, 'aaaaaaaaA7/'))
+            ->setPassword($this->encoder->encodePassword($admin, 'Aaaaaa1+'))
             ->setActivated(true)    // Compte activé
             ->setActivationToken(md5( random_bytes(100) ))
         ;
