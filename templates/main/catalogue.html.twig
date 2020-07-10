@@ -1,0 +1,57 @@
+{# Utilisation du squelette de page base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# le block title dans le squelette sera rempli avec le contenu de ce block #}
+{% block title %}Catalogue{% endblock %}
+
+{# le block body dans le squelette sera rempli avec le contenu de ce block #}
+{% block body %}
+
+    <div class="container-fluid">
+
+        {# Affichage des messages flashs de type "success" si il y en a #}
+        {% include 'partials/flashes/success.html.twig' %}
+        {# Affichage des messages flashs de type "error" si il y en a #}
+        {% include 'partials/flashes/error.html.twig' %}
+        
+        {# Titre h1 #}
+        <div class="row">
+            <h1 class="col-12 text-center my-5">Catalogue </h1>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-12 text-center">
+                <h1>Liste des films</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8 offset-2">
+        
+                <p class="text-center my-3">
+                    {# Création d'un lien permettant de trier par titre #}
+                    <span class="mx-2">{{ knp_pagination_sortable(movies, 'Trier par titre', 'a.title') }}</span>
+                    {# Création d'un lien permettant de trier par date #}
+                    <span class="mx-2">{{ knp_pagination_sortable(movies, 'Trier par Date', 'a.publicationDate') }}</span>
+                </p>
+        
+                <div class="list-group">
+                    {# Affichage des movies #}
+                    {% for movie in movies %}
+                        <a href="{#lien slug#}" class="list-group-item list-group-item-action">{{ movie.title }}</a>
+                    {% endfor %}
+                </div>
+        
+                <div class="my-3 text-center">
+                    <div class="d-inline-block">
+                        {# Affichage du menu permettant de naviguer entre les différentes pages #}
+                        {{ knp_pagination_render(movies) }}
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

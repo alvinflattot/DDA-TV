@@ -4,32 +4,40 @@
 {# le block title dans le squelette sera rempli avec le contenu de ce block #}
 {% block title %}Accueil{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-dorian.css') }}">
+{% endblock %}
+
 {# le block body dans le squelette sera rempli avec le contenu de ce block #}
 {% block body %}
 
     <div class="container-fluid">
 
-<<<<<<< HEAD
+        {# Affichage des messages flashs de type "success" si il y en a #}
+        {% include 'partials/flashes/success.html.twig' %}
+        {# Affichage des messages flashs de type "error" si il y en a #}
+        {% include 'partials/flashes/error.html.twig' %}
+
         <!--Navbar-->
         <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
 
             <ul class="navbar-nav mr-auto">
 
-                <img class="logo ml-2" src="{{ asset('img/dda_logo.png') }}" alt="logo DDA TV">
+                <img class="logo ml-2" src="images/dda_logo.png" alt="logo DDA TV">
 
                 <li class="nav-item">
 
-                    <p class="navbar-brand">DDA TV</p>
+                    <a class="navbar-brand" href="#">DDA TV</a>
 
                 </li>
 
             </ul>
 
             <ul class="navbar-nav d-flex justify-content-end">
-
+                
                 <li class="nav-item">
 
-                    <a class="nav-link" id="login" href="{{ path('home') }}" data-toggle="modal" data-target="#loginModal">Connexion</a>
+                    <a class="nav-link" id="login" href="#" data-toggle="modal" data-target="#loginModal">Connexion</a>
 
                     <div class="modal fade col-md-5 offset-sm-4" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -38,7 +46,7 @@
 
                                     <h2 class="modal-title" id="exampleModalLabel">Connexion</h2>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true">&times;</span>
                                     </button>
 
                                 </div>
@@ -69,7 +77,7 @@
                                     <button type="submit" class="btn">Connexion</button>
 
                                 </div>
-
+                            
                             </div>
                         </div>
                     </div>
@@ -79,7 +87,7 @@
 
                 <li class="nav-item">
 
-                    <a class="nav-link" id="register" href="{{ path('home') }}" data-toggle="modal" data-target="#registerModal">Inscription</a>
+                    <a class="nav-link" id="register" href="index.html" data-toggle="modal" data-target="#registerModal">Inscription</a>
 
                     <div class="modal fade col-md-5 offset-sm-4" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -88,7 +96,7 @@
 
                                     <h2 class="modal-title" id="exampleModalLabel">Inscription</h2>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true">&times;</span>
                                     </button>
 
                                 </div>
@@ -140,7 +148,7 @@
                                     <button type="button" class="btn">Inscription</button>
 
                                 </div>
-
+                            
                             </div>
                         </div>
                     </div>
@@ -155,7 +163,7 @@
         <!--Sections-->
         <div class="row">
             <section class="content col-12">
-
+                
             </section>
         </div>
 
@@ -163,8 +171,8 @@
             <section class="view col-12 text-center px-4 py-4">
                 <h1>Bienvenue sur DDA TV</h1>
                 <h2>Le site ou vous n'allez plus perdre le fil sur vos films et vos series !</h2>
-                <p class="pt-3">DDA TV est un site qui regroupe beaucoup de films et séries en tout genre.</p>
-                <p class="pt-2">Trouvez VOTRE nouvelle série ou nouveau film préféré, en lisant les fiches techniques contenues dans notre catalogue.</p>
+                <p class="pt-3">DDA TV est un site qui regroupe beaucoup de films et series en tout genre.</p>
+                <p class="pt-2">Trouver VOTRE nouvelle serie ou nouveau film prefere, en lisant les fiches techniques contenus dans notre catalogue.</p>
             </section>
         </div>
 
@@ -184,33 +192,19 @@
                     <a class="media justify-content-center align-items-center" href="contact.html">Contact</a>
                 </div>
 
-                <div class="col-md-7 pt-4">
+                <div class="col-md-7 pt-4"> 
                     <a class="media justify-content-center align-items-center" href="#">Mentions légales</a>
                 </div>
 
                 <div class="col-md-12 pt-4">
-
+                
                     <p class="media justify-content-center align-items-center"><small>© 2020, DDA TV, WF3 students</small></p>
-
+        
                 </div>
 
             </div>
-
+            
         </footer>
-=======
-        {# Affichage des messages flashs de type "success" si il y en a #}
-        {% include 'partials/flashes/success.html.twig' %}
-        {# Affichage des messages flashs de type "error" si il y en a #}
-        {% include 'partials/flashes/error.html.twig' %}
-        
-        {# Titre h1 #}
-        <div class="row">
-            <h1 class="col-12 text-center my-5">Accueil </h1>
-
-        </div>
-
-        
->>>>>>> a925beb3d7d91fc1d60d14167d628e79de08eb6e
 
     </div>
 
