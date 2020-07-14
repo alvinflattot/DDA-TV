@@ -32,6 +32,8 @@ class AppFixtures extends Fixture
         // On instancie le Faker en langue française
         $faker = Faker\Factory::create('fr_FR');
 
+        
+
         /////Les série/////////////////////////////////////////////////////
         for($i = 1; $i <= 5; $i++){
 

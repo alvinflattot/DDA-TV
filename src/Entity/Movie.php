@@ -16,7 +16,7 @@ class Movie
     public function __toString() {
 
         // Le return doit renvoyer quelque chose permettant d'identifier facilement l'élément en question
-        return $this->id . ' - ' . $this->email;
+        return $this->id . ' - ' . $this->title;
     }
     
     /**
