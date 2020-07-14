@@ -135,6 +135,8 @@ hr{
 @media screen and (min-width: 600px) and (max-width: 1006px){
 
 
+
+
     .nav-main{
         display: flex;
         flex-direction: row;

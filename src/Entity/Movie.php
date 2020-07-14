@@ -13,6 +13,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Movie
 {
+    //pour easyAdmin
+    public function __toString() {
+
+        // Le return doit renvoyer quelque chose permettant d'identifier facilement l'élément en question
+        return $this->id . ' - ' . $this->title;
+    }
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

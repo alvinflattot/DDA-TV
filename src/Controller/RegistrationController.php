@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
 
         // Redirige de force vers l'accueil si l'utilisateur est déjà connecté
         if ($this->getUser()) {
-            return $this->redirectToRoute('catalogue');
+            return $this->redirectToRoute('catalogue_index');
         }
 
         // Création d'un nouvel objet "User"
@@ -102,7 +102,7 @@ class RegistrationController extends AbstractController
                 // Message flash de succès
                 $this->addFlash('success', 'Votre compte a été créé avec succès ! Un email vous a été envoyé pour activer votre compte.');
 
-                return $this->redirectToRoute('home');
+                return $this->redirectToRoute('app_login');
             }
         }
 
