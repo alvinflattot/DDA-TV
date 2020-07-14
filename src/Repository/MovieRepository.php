@@ -19,6 +19,20 @@ class MovieRepository extends ServiceEntityRepository
         parent::__construct($registry, Movie::class);
     }
 
+    /**
+     * @return Movie[] Returns an array of Movie objects
+     * Création d'une méthode qui retournera les 3 derniers films enregistrés en bdd
+     */
+    public function findLatestInsertedMovies(): array
+    {
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Movie[] Returns an array of Movie objects
     //  */
@@ -34,7 +48,7 @@ class MovieRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Movie

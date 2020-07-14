@@ -19,6 +19,8 @@ class SerieRepository extends ServiceEntityRepository
         parent::__construct($registry, Serie::class);
     }
 
+
+
     // /**
     //  * @return Serie[] Returns an array of Serie objects
     //  */
@@ -36,7 +38,26 @@ class SerieRepository extends ServiceEntityRepository
     }
     */
 
+    /**
+     * @return Serie[] Returns an array of Serie objects
+     * Création d'une méthode qui retournera les 3 dernières séries enregistrées en bdd
+     */
+    public function findLatestInsertedSeries(): array
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.id', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+
+
     /*
+     *  /*
+     *
     public function findOneBySomeField($value): ?Serie
     {
         return $this->createQueryBuilder('s')
