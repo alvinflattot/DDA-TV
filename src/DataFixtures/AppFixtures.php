@@ -19,6 +19,12 @@ class AppFixtures extends Fixture
 {
     private $encoder;
 
+    //Création nouveau faker pour type manga
+    private static $serieTypes = [
+        'Feuilleton',
+        'Mangas'
+    ];
+
     /**
      * Utilisation du constructeur pour récupérer le service de hashage des mots de passe via autowiring
      */
@@ -26,6 +32,8 @@ class AppFixtures extends Fixture
     {
         $this->encoder = $encoder;
     }
+
+
 
     public function load(ObjectManager $manager)
     {
@@ -42,7 +50,7 @@ class AppFixtures extends Fixture
             $newSerie 
                  ->setTitle( $faker->sentence ) // Phrase aléatoire
                  ->setSummary( $faker->sentence)
-                 ->setType( $faker->word)
+                 ->setType( $faker->randomElement(self::$serieTypes))
                  ->setposter( 'a.png' )
                  ->setStartYear( $faker->dateTimeBetween('-20years', 'now') )   // Date aléatoire entre maintenant et il y a 20 ans
             ;
@@ -53,7 +61,7 @@ class AppFixtures extends Fixture
         }
 
         //////ces saisons ///////////////////////////////////////////////////
-        for($i = 1; $i <= 20; $i++){
+        for($i = 1; $i <= 10; $i++){
 
             $newSeason = new Season();
     
@@ -154,8 +162,8 @@ class AppFixtures extends Fixture
 
             // Hydratation du compte avec des données aléatoire
             $user
-                ->setFirstname( $faker->userName )
-                ->setLastname( $faker->userName )
+                ->setFirstname( $faker->firstName )
+                ->setLastname( $faker->lastName )
                 ->setEmail( $faker->email )
                 ->setPassword( $this->encoder->encodePassword($user, 'aaaaaaaaA7/') )
                 ->setRegistrationDate( $faker->dateTimeBetween('-1 year', 'now') )
