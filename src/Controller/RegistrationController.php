@@ -102,7 +102,7 @@ class RegistrationController extends AbstractController
                 // Message flash de succès
                 $this->addFlash('success', 'Votre compte a été créé avec succès ! Un email vous a été envoyé pour activer votre compte.');
 
-                return $this->redirectToRoute('home');
+                return $this->redirectToRoute('app_login');
             }
         }
 

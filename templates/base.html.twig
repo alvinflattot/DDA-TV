@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/stylehome.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}" >
+        <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}">
 
          {# Inclusion des fichiers CSS individuels des pages #}
         {% block stylesheets %}{% endblock %}
@@ -22,7 +22,7 @@
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="bg-dark border-right" id="sidebar-wrapper">
             <div class="sidebar-heading bg-dark text-white">
                 <a class="navbar-brand" href="{{ path('home') }}" id="DDA">
                     <img src="{{ asset('img/dda_logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">DDA TV </a></div>
@@ -31,12 +31,12 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Que cherchez-vous ?" aria-label="Search">
                     <button class="btn btn-outline-light my-2 my-sm-0 mt-1" type="submit">Rechercher</button>
                 </form>
-                <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name"><i class="fas fa-user"></i> Perceval de Galles</p>
+                <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name"><i class="fas fa-user"></i>&nbsp;&nbsp;{{app.user.firstname}} {{app.user.lastname}}</p>
                 <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name">Temps de visionnage : xx jours xx heures xx minutes</p>
-                <a href="{{ path('main_profil') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-edit"></i> Profil</a>
+                <a href="{{ path('profil') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-edit"></i> Profil</a>
                 <a href="{{ path('catalogue_index') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-book-reader"></i> Catalogue</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-cog"></i> Paramètres</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+                <a href="{{ path('my_setting') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-cog"></i> Paramètres</a>
+                <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a>
                 <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a>
             </div>

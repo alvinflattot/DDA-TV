@@ -108,6 +108,24 @@ class AppFixtures extends Fixture
 
         }
 
+        // Création d'un nouvel film////
+        $totoro = new Movie();
+            
+
+        // Hydratation du nouvel film
+        $dir = '../../public/images';
+        $totoro
+            ->setTitle( 'Totoro' ) // Phrase aléatoire
+            ->setSummary( 'Deux petites filles, Mei, 4 ans, et Satsuki, 10 ans, s\'installent dans une grande maison à la campagne avec leur père pour se rapprocher de l\'hôpital où séjourne leur mère. Elles découvrent la nature tout autour de la maison et, surtout, l\'existence de créatures merveilleuses, les Totoros, avec qui elles deviennent très amies.')
+            ->setType( 'animation')
+            ->setposter( $faker->imageUrl($width = 640, $height = 480) )
+            ->setDuration( 86*60)
+            ->setReleaseDate( new DateTime('1999-09-08') )   // Date aléatoire entre maintenant et il y a 20 ans
+        ;
+        
+        // Enregistrement du nouvel film auprès de Doctrine
+        $manager->persist($totoro);
+
         // Création compte admin///////////////////////////////////////
         $admin = new User();
 
