@@ -42,8 +42,13 @@ class AppFixtures extends Fixture
             $newSerie 
                  ->setTitle( $faker->sentence ) // Phrase aléatoire
                  ->setSummary( $faker->sentence)
+<<<<<<< HEAD
                  ->setType( $faker->word)
                  ->setposter( 'a.png' )
+=======
+                 ->setType( $faker->randomElement(self::$serieTypes))
+                 ->setposter( $faker->imageUrl($width = 640, $height = 480) )
+>>>>>>> dounia2
                  ->setStartYear( $faker->dateTimeBetween('-20years', 'now') )   // Date aléatoire entre maintenant et il y a 20 ans
             ;
      
