@@ -11,14 +11,13 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/stylehome.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}" >
-        <link rel="stylesheet" href="{{ asset('css/style_film_manga_serie.css') }}" >
+        <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}">
 
          {# Inclusion des fichiers CSS individuels des pages #}
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
 
     <div class="d-flex" id="wrapper">
 
@@ -32,24 +31,14 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Que cherchez-vous ?" aria-label="Search">
                     <button class="btn btn-outline-light my-2 my-sm-0 mt-1" type="submit">Rechercher</button>
                 </form>
-
-                {# Boutons si l'utilisateur est connecté #}
-                {% if app.user %}
-                    <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name"><i class="fas fa-user"></i>
-                        {{ app.user.firstname }} {{ app.user.lastname }}</p>
-                    <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name">Temps de visionnage : xx jours xx heures xx minutes</p>
-                    <a href="{{ path('main_profil') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-edit"></i> Profil</a>
-                    <a href="{{ path('catalogue_index') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-book-reader"></i> Catalogue</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-cog"></i> Paramètres</a>
-                    <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
-                {# Boutons si l'utilisateur n'est pas connecté #}
-                {% else %}
-                    <a href="{{ path('app_login') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-in-alt"></i> Connexion</a>
-                    <a href="{{ path('app_register') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-plus"></i> Inscription</a>
-                {% endif %}
-                    <a href="{{ path('contact') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a>
-
+                <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name"><i class="fas fa-user"></i>&nbsp;&nbsp;{{app.user.firstname}} {{app.user.lastname}}</p>
+                <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name">Temps de visionnage : xx jours xx heures xx minutes</p>
+                <a href="{{ path('profil') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-edit"></i> Profil</a>
+                <a href="{{ path('catalogue_index') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-book-reader"></i> Catalogue</a>
+                <a href="{{ path('my_setting') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-cog"></i> Paramètres</a>
+                <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a>
             </div>
 
 
@@ -75,6 +64,7 @@
 
     </div>
     <!-- /#wrapper -->
+
 
 
 

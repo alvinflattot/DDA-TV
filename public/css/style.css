@@ -114,7 +114,9 @@ hr{
 /**Media Queries page catalogue*/
 /*Format mobile*/
 @media screen and (min-width: 320px) and (max-width: 600px){
-
+    .container-fluid{
+        padding: 0;
+    }
 
     .card-img-top {
         height: 300px;
@@ -133,9 +135,9 @@ hr{
 
 /**Format tablette*/
 @media screen and (min-width: 600px) and (max-width: 1006px){
-
-
-
+    /* .container-fluid{
+        display: flex;
+    } */
 
     .nav-main{
         display: flex;

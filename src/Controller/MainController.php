@@ -21,7 +21,9 @@ class MainController extends AbstractController
      */
     public function home()
     {
+        
         // Cette page appellera la vue templates/main/home.html.twig
+
         return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController',
         ]);
@@ -36,7 +38,6 @@ class MainController extends AbstractController
         //Page d'apel de la vue 404 pour test
         return $this->render('bundles/TwigBundle/Exception/error404.html.twig');
     }
-
     
     /**
      * Page du catalogue
@@ -72,7 +73,6 @@ class MainController extends AbstractController
     //     ]);
     // }
 
-
     /**
      * Page des parametre du profil
      *
@@ -91,17 +91,10 @@ class MainController extends AbstractController
      */
     public function profil()
     {
+        
+
         // On envoi les movies récupérés à la vue
         return $this->render('main/profil.html.twig',);
-    }
-  
-    /**
-     *Page contact
-     * @Route("/contactez-nous", name="contact")
-     */
-    public function contact()
-    {
-        return $this->render('main/contact.html.twig');
     }
   
 }
