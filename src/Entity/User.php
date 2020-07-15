@@ -39,6 +39,11 @@ class User implements UserInterface
     private $password;
 
     /**
+     * Mot de passe en clair, non lié à la base de données, nécessaire pour permettre à easybundle de pouvoir hasher les mots de passe
+     */
+    private $plainPassword;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
@@ -165,6 +170,19 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
 
     /**
      * @see UserInterface

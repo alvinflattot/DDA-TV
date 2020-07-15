@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     google_recaptcha_private_key: '%env(GOOGLE_RECAPTCHA_PRIVATE_KEY)%'
+    # %kernel.project_dir% = dossier "public"
+    app.movie.poster.directory: '%kernel.project_dir%/public/images/movie/'
 
 services:
     # default configuration for services in *this* file

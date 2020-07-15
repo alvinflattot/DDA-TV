@@ -21,6 +21,12 @@
 
         <div class="row my-3">
             <div class="col-12 text-center">
+
+                {# Si aucun film/série est suivi#}
+                {% if app.user.favoriteMovies is empty and app.user.favoriteSeries %}
+                    <p>Vous n'avez pas encore suivi de films ou séries</p>
+                {% endif %}
+
                 <h1>Liste des films</h1>
                 {% for movie in app.user.favoriteMovies %}
                     <img src="{{movie.poster}}" alt="">
@@ -29,6 +35,15 @@
                    <p>Type : {{movie.type}} </p>
                    <p>Date de sortie : {{movie.releaseDate|date('d/m/Y')}} </p>
                    <p>Durée : {{movie.duration}} </p>
+                   
+               {% endfor %}
+
+               <h1>Liste des Série</h1>
+               {% for serie in app.user.favoriteSeries %}
+                    <img src="{{serie.poster}}" alt="">
+                   <p>Titre : {{serie.title}} </p>
+                   <p>Résumé: {{serie.summary}} </p>
+                   <p>Type : {{serie.type}} </p>
                    
                {% endfor %}
             </div>

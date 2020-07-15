@@ -11,10 +11,10 @@ easy_admin:
         menu:
             - { label: 'Revenir au site', route: 'home', icon: 'link'}
             - User
-            # - Movie
-            # - Serie
-            # - Season
-            # - Episode
+            - Movie
+            - Serie
+            - Season
+            - Episode
     entities:
         User:
             class: App\Entity\User
@@ -27,9 +27,9 @@ easy_admin:
                     - {property: 'id', label: 'ID'}
                     - {property: 'email', type: 'email', label: 'Adresse Email'}
                     - {property: 'firstname', label: 'Prénom'}
-                    - {property: 'activated', label: 'Email confirmé'}
+                    - {property: 'lastname', label: 'Nom'}
                     - {property: 'registrationDate', label: 'Date d''inscription'}
-                    - {property: 'picture',  type: 'image', base_path: 'images/users/', label: 'Photo'}
+                    - {property: 'roles', label: 'Role'}
             edit:
                 title: 'Modifier un utilisateur'
                 fields:
@@ -42,6 +42,121 @@ easy_admin:
                 fields:
                     - {property: 'email', type: 'email', label: 'Adresse Email'}
                     - {property: 'plainPassword', type: 'password', label: 'Mot de passe'}
-                    - {property: 'firstname', label: 'firstname'}
+                    - {property: 'firstname', label: 'Prénom'}
+                    - {property: 'lastname', label: 'Nom'}
                     - {property: 'activated', label: 'Email confirmé'}
-        
+        Movie:
+            class: App\Entity\Movie
+            label: 'Film'
+            list:
+                title: 'Liste des films'
+                sort: ['id', 'ASC']
+                fields:
+                    - {property: 'id', label: 'ID'}
+                    - {property: 'title', label: 'titre'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'type', label: 'Genre'}
+                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'duration', label: 'durée'}
+                    - {property: 'poster',  type: 'image', base_path: 'images/movie/', label: 'Affiche'}
+            edit:
+                title: 'Modifier un film'
+                fields:
+                    - {property: 'title', label: 'titre'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'type', label: 'Genre'}
+                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'duration', label: 'durée'}
+            new:
+                title: 'Créer un nouveau film'
+                fields:
+                    - {property: 'title', label: 'titre'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'type', label: 'Genre'}
+                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'duration', label: 'durée'}
+                    - {property: 'poster',  type: 'file', base_path: 'images/movie/', label: 'Affiche'}
+        Serie:
+            class: App\Entity\Serie
+            label: 'Série'
+            list:
+                title: 'Liste des série'
+                sort: ['id', 'ASC']
+                fields:
+                    - {property: 'id', label: 'ID'}
+                    - {property: 'title', label: 'titre'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'type', label: 'Genre'}
+                    - {property: 'startYear', label: 'Date de début'}
+                    - {property: 'poster',  type: 'image', base_path: 'images/serie/', label: 'Affiche'}
+            edit:
+                title: 'Modifier un serie'
+                fields:
+                    - {property: 'title', label: 'titre'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'type', label: 'Genre'}
+                    - {property: 'startYear', label: 'Date de début'}
+            new:
+                title: 'Créer un nouveau serie'
+                fields:
+                    - {property: 'title', label: 'titre'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'type', label: 'Genre'}
+                    - {property: 'startYear', label: 'Date de début'}
+                    - {property: 'poster',  type: 'file', base_path: 'images/movie/', label: 'Affiche'}        
+        Season:
+            class: App\Entity\Season
+            label: 'Saison'
+            list:
+                title: 'Liste des saison'
+                sort: ['id', 'ASC']
+                fields:
+                    - {property: 'id', label: 'ID'}
+                    - {property: 'serie', label: 'série'}
+                    - {property: 'seasonNumber', label: 'Numéro de la saison'}
+                    - {property: 'summary', label: 'Résumé'}
+            edit:
+                title: 'Modifier un saison'
+                fields:
+                    - {property: 'serie', label: 'série'}
+                    - {property: 'seasonNumber', label: 'Numéro de la saison'}
+                    - {property: 'summary', label: 'Résumé'}
+            new:
+                title: 'Créer un nouveau saison'
+                fields:
+                    - {property: 'serie', label: 'série'}
+                    - {property: 'seasonNumber', label: 'Numéro de la saison'}
+                    - {property: 'summary', label: 'Résumé'}
+        Episode:
+            class: App\Entity\Episode
+            label: 'Episode'
+            list:
+                title: 'Liste des Episodes'
+                sort: ['id', 'ASC']
+                fields:
+                    - {property: 'id', label: 'ID'}
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'episodeNumber', label: 'Numéro'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'duration', label: 'durée'}
+                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'season', label: 'Série'}
+
+            edit:
+                title: 'Modifier un saison'
+                fields:
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'episodeNumber', label: 'Numéro'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'duration', label: 'durée'}
+                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'season', label: 'Série'}
+            new:
+                title: 'Créer un nouveau saison'
+                fields:
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'episodeNumber', label: 'Numéro'}
+                    - {property: 'summary', label: 'Résumé'}
+                    - {property: 'duration', label: 'durée'}
+                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'season', label: 'Série'}
