@@ -7,120 +7,81 @@
     <!--Partie principale avec les cards-->
     <div class="container-fluid d-flex flex-column pt-1 main-catalogue">
 
+
+        {# Titre h1 #}
+        <div class="row">
+            <h1 class="col-12 text-center my-5 custom-title">Catalogue </h1>
+        </div>
+
+
         <!--Partie séries-->
         <section class="row shows">
 
             <div class="col-12 title d-flex justify-content-between">
                 <h2 class="gallery">Series</h2>
-                <a href="#">Voir tout> </a>
+                <a href="{{ path('catalogue_serie_list') }}" class="link-view">Voir tout </a>
             </div>
 
-            <div class="row">
                 <div class="card-deck col-12 m-auto">
-                    <div class="card">
-                        <img src="{{ asset('img/kaamelott.jpg') }}" class="card-img-top" alt="Kaamelott">
-                        <div class="card-body">
-                            <a href="{{ path('catalogue_view') }}" title="Voir la fiche technique"><h5 class="card-title"><bold>Kaamelott</bold></h5></a>
-                            <p class="card-text">"Mundi placet et spiritus minima", ça n'a aucun sens mais on pourrait très bien imaginer une traduction du type : "Le roseau plie, mais ne cède... qu'en cas de pépin" ce qui ne veut rien dire non plus.</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
+                    {% for serie in series %}
+                        <div class="card">
+                            <img src="{{ serie.poster }}" class="card-img-top" alt="Kaamelott">
+                            <div class="card-body">
+                                <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ serie.title }}</h5></a>
+                                <p class="card-text">{{ serie.summary }}</p>
+                                <p class="card-text"><small class="text-muted">Date de commencement : le {{ serie.startYear|date('d/m/Y') }}</small></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('img/jonsnowonthronegot.jpg') }}" class="card-img-top" alt="GOT">
-                        <div class="card-body">
-                            <a href="#"  title="Voir la fiche technique"><h5 class="card-title"><bold>Game Of Thrones</bold></h5></a>
-                            <p class="card-text">Neuf familles nobles rivalisent pour le contrôle du Trône de Fer dans les sept royaumes de Westeros. Pendant ce temps, des anciennes créatures mythiques oubliées reviennent pour faire des ravages.</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('img/vic-mackey-wallpaper-the-shield-38024102-1280-1024.jpg') }}" class="card-img-top" alt="The Shield">
-                        <div class="card-body">
-                            <a href="#"  title="Voir la fiche technique"><h5 class="card-title"><bold>The Shield</bold></h5></a>
-                            <p class="card-text">Pour rétablir l'ordre dans les secteurs les plus dangereux de Los Angeles, une brigade de police en arrive à mettre en oeuvre des méthodes plutôt expéditives et inhabituelles.</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+
             </div>
+
         </section>
 
         <!--parties films-->
-        <section class="row movies">
+        <section class="row movies pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
                 <h2 class="gallery">Films</h2>
-                <a href="#">Voir tout> </a>
+                <a href="{{ path('catalogue_movie_list') }}" class="link-view">Voir tout </a>
             </div>
 
-            <div class="row">
+
                 <div class="card-deck col-12 m-auto">
-                    <div class="card">
-                        <img src="{{ asset('img/jurassic.png') }}" class="card-img-top" alt="Jurassic Park">
-                        <div class="card-body">
-                            <a href="#"  title="Voir la fiche technique"><h5 class="card-title"><bold>Jurassic Park</bold></h5></a>
-                            <p class="card-text">Ne pas réveiller le chat qui dort... C'est ce que le milliardaire John Hammond aurait dû se rappeler avant de se lancer dans le "clonage" de dinosaures. C'est à partir d'une goutte de sang absorbée par un moustique fossilisé que John Hammond et son équipe ont réussi à faire renaître une dizaine d'espèces de dinosaures.</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
+                    {% for movie in movies %}
+                        <div class="card">
+                            <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
+                            <div class="card-body">
+                                <a href="#"  title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
+                                <p class="card-text">{{ movie.summary }}</p>
+                                <p class="card-text"><small class="text-muted">Date de sortie : {{ movie.releaseDate|date('d/m/Y') }}</small></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('img/personne.jpg') }}" class="card-img-top" alt="Mon nom est personne">
-                        <div class="card-body">
-                            <a href="#"  title="Voir la fiche technique"><h5 class="card-title"><bold>Mon nom est personne</bold></h5></a>
-                            <p class="card-text">Jack Beauregard, légende de l'Ouest, désire mettre un terme à sa carrière de pistolero et envisage de s'embarquer pour l'Europe. Mais un jeune admirateur, affirmant s'appeler Personne, ne l'entend pas de cette oreille. Il veut faire entrer Beauregard dans l'Histoire en l'amenant à combattre la Horde sauvage. </p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('img/walter.jpg') }}" class="card-img-top" alt="Walter">
-                        <div class="card-body">
-                            <a href="#"  title="Voir la fiche technique"><h5 class="card-title"><bold>Walter</bold></h5></a>
-                            <p class="card-text">Pour Goran et son équipe de braqueurs amateurs, le plan était presque parfait : pénétrer de nuit dans un hypermarché pour dévaliser une bijouterie. Mais ces « bras cassés » n’avaient pas prévu l’arrivée d’un vigile pas comme les autres : Walter, un ex-chef de guerre africain qui va les envoyer en enfer…</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
-            </div>
+
         </section>
 
         <!--Partie Mangas-->
-        <section class="row mangas">
+        <section class="row mangas pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
                 <h2 class="gallery">Mangas</h2>
-                <a href="#">Voir tout> </a>
+                <a href="{{ path('catalogue_manga_list') }}" class="link-view">Voir tout </a>
             </div>
 
-            <div class="row">
                 <div class="card-deck col-12 m-auto">
-                    <div class="card">
-                        <img src="{{ asset('img/Attack-Titan-Fuji-Q-Highland-main-1200.jpg') }}" class="card-img-top" alt="attack of titans">
-                        <div class="card-body">
-                            <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>L'attaque des titans</bold></h5></a>
-                            <p class="card-text">L’histoire tourne autour du personnage d’Eren Jäger dans un monde où l’humanité vit entourée d’immenses murs pour se protéger de créatures gigantesques, les Titans. Le récit raconte le combat mené par l’humanité pour reconquérir son territoire, en éclaircissant les mystères liés à l’apparition des Titans. </p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
+                    {% for manga in mangas %}
+                        <div class="card">
+                            <img src="{{ manga.poster }}" class="card-img-top" alt="attack of titans">
+                            <div class="card-body">
+                                <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ manga.title }}</h5></a>
+                                <p class="card-text">{{ manga.summary }}</p>
+                                <p class="card-text"><small class="text-muted">Date de commencement : le {{ manga.startYear|date('d/m/Y') }}</small></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('img/fairytale-1600x900-0-1024x576.jpg') }}" class="card-img-top" alt="fairy tale">
-                        <div class="card-body">
-                            <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>Fairy Tail</bold></h5></a>
-                            <p class="card-text">Quatre jeunes sorciers unissent leurs forces pour mener des missions dans l'ensemble du royaume et forgent des liens plus puissants que la magie</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="{{ asset('img/index.jpg') }}" class="card-img-top" alt="dragon ball z">
-                        <div class="card-body">
-                            <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>Dragon Ball Z</bold></h5></a>
-                            <p class="card-text">Cinq ans après le mariage de Son Goku et de Chichi, Raditz, un mystérieux guerrier de l'espace, frère de Son Goku, arrive sur Terre. Goku apprend qu'il vient d'une planète de guerriers redoutables dont il ne reste plus que quatre survivants.</p>
-                            <p class="card-text"><small class="text-muted">Ajouté il y a xxxx</small></p>
-                        </div>
-                    </div>
-
-
+                    {% endfor %}
                 </div>
-            </div>
 
         </section>
 

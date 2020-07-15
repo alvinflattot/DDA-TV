@@ -45,7 +45,6 @@
 }
 
 
-
 a{
     text-decoration: none;
     color: black;
@@ -150,19 +149,16 @@ hr{
     text-shadow: 2px 2px 2px rgba(240, 240, 240, 0.6);
     font-family: "Broadway", sans-serif;
 }
-
 .view>h2
 {
     text-shadow: 2px 2px 2px rgba(240, 240, 240, 0.6);
     font-family: "Broadway", sans-serif;
 }
-
 .view>p
 {
     text-shadow: 2px 2px 2px rgba(240, 240, 240, 0.6);
     font-family: "akbar", sans-serif;
 }
-
 
 /*footer*/
 .footer
@@ -206,37 +202,26 @@ hr{
 .main-catalogue{
     background-color: #868484
 }
-/*Titres de la page catalogue*/
+/*Titre principal (='catalogue')*/
+.custom-title{
+    font-family: 'Corleone';
+    font-size: 5rem;
+}
+
+/*Titres de la page catalogue (='series, films, mangas')*/
 .gallery{
     font-family: 'Alias';
 }
 
-.shows{
+/*Mes 3 sections*/
+.shows,.movies,.mangas{
     margin: auto;
+    width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*Mes liens 'voir tout'*/
+.link-view{
+    font-family: 'Corleone';
+}
 
 /**Media Queries page catalogue*/
 /*Format mobile*/
@@ -262,9 +247,9 @@ hr{
 
 /**Format tablette*/
 @media screen and (min-width: 600px) and (max-width: 1006px){
-    /* .container-fluid{
+    .container-fluid{
         display: flex;
-    } */
+    }
 
     .nav-main{
         display: flex;
