@@ -3,7 +3,7 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
-
+/*Propriétés du menu*/
  #wrapper {
     overflow-x: hidden;
  }
@@ -53,6 +53,36 @@
   }
 }
 
+
+/*Propriétés sur navbar*/
+.search{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.form-control{
+  margin-bottom: 0.5rem;
+}
+
+.form-inline{
+  margin: auto;
+}
+
+.user-name{
+  font-size: 0.75rem;
+  color: lightgray;
+}
+
+.credits{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.gold:hover{
+  color: darkgoldenrod;
+}
 
 
 /**Media Queries page catalogue*/

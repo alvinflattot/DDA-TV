@@ -4,35 +4,38 @@
 
 {% block body %}
 
-    <div class="container-fluid body-serie">
+    <div class="container-fluid main-catalogue">
+        {#S'il n'y a pas de séries ds la bdd#}
         {% if series is empty %}
             <div class="row">
                 <p>Aucune série à afficher</p>
             </div>
+            {#sinon, on les affiche#}
         {% else %}
-            <!--parties séries-->
-            <section class="row">
+            <!--Titre-->
+            <div class="row no-margin">
                 <div class="col-12 text-center p-5">
-                    <h1>Séries</h1>
-                    <p class="col-12 text-center"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
+                    <h1 class="custom-title">Séries</h1>
+                    <p class="col-12 text-center harryP"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
                 </div>
-            </section>
+            </div>
 
-            <section class="row">
+            <!--Cards des séries-->
+            <div class="row row-cols-1 row-cols-md-3 no-margin">
+                {% for serie in series %}
+                    <div class="col mb-4">
 
-                <div class="card-deck col-12">
-                    {% for serie in series %}
-                        <div class="card">
-                            <img src="{{ serie.poster }}" class="card-img-top" alt="Jurassic Park">
-                            <div class="card-body">
-                                <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ serie.title }}</bold></h5></a>
-                                <p class="card-text">{{ serie.summary }}</p>
+                            <div class="card h-100 white-shadow">
+                                <img src="{{ serie.poster }}" class="card-img-top" alt="Jurassic Park">
+                                <div class="card-body">
+                                    <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ serie.title }}</bold></h5></a>
+                                    <p class="card-text">{{ serie.summary }}</p>
+                                </div>
                             </div>
-                        </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
 
-                </div>
-            </section>
+            </div>
         {% endif %}
     </div>
 

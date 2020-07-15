@@ -10,7 +10,7 @@
 
         {# Titre h1 #}
         <div class="row">
-            <h1 class="col-12 text-center my-5 custom-title">Catalogue </h1>
+            <h1 class="col-12 text-center my-5 custom-title">Catalogue</h1>
         </div>
 
 
@@ -18,21 +18,21 @@
         <section class="row shows">
 
             <div class="col-12 title d-flex justify-content-between">
-                <h2 class="gallery">Series</h2>
+                <h2 class="font-alias text-white">Series</h2>
                 <a href="{{ path('catalogue_serie_list') }}" class="link-view">Voir tout </a>
             </div>
 
-                <div class="card-deck col-12 m-auto">
-                    {% for serie in series %}
-                        <div class="card">
-                            <img src="{{ serie.poster }}" class="card-img-top" alt="Kaamelott">
-                            <div class="card-body">
-                                <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ serie.title }}</h5></a>
-                                <p class="card-text">{{ serie.summary }}</p>
-                                <p class="card-text"><small class="text-muted">Date de commencement : le {{ serie.startYear|date('d/m/Y') }}</small></p>
-                            </div>
+            <div class="card-deck col-12 m-auto">
+                {% for serie in series %}
+                    <div class="card  white-shadow">
+                        <img src="{{ serie.poster }}" class="card-img-top" alt="Kaamelott">
+                        <div class="card-body">
+                            <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ serie.title }}</h5></a>
+                            <p class="card-text">{{ serie.summary }}</p>
+                            <p class="card-text"><small class="text-muted">Date de commencement : le {{ serie.startYear|date('d/m/Y') }}</small></p>
                         </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
 
             </div>
 
@@ -42,14 +42,14 @@
         <section class="row movies pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
-                <h2 class="gallery">Films</h2>
+                <h2 class="font-alias text-white">Films</h2>
                 <a href="{{ path('catalogue_movie_list') }}" class="link-view">Voir tout </a>
             </div>
 
 
                 <div class="card-deck col-12 m-auto">
                     {% for movie in movies %}
-                        <div class="card">
+                        <div class="card white-shadow">
                             <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
                             <div class="card-body">
                                 <a href="#"  title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
@@ -66,13 +66,13 @@
         <section class="row mangas pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
-                <h2 class="gallery">Mangas</h2>
+                <h2 class="font-alias text-white">Mangas</h2>
                 <a href="{{ path('catalogue_manga_list') }}" class="link-view">Voir tout </a>
             </div>
 
                 <div class="card-deck col-12 m-auto">
                     {% for manga in mangas %}
-                        <div class="card">
+                        <div class="card  white-shadow">
                             <img src="{{ manga.poster }}" class="card-img-top" alt="attack of titans">
                             <div class="card-body">
                                 <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ manga.title }}</h5></a>

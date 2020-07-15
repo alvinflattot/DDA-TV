@@ -4,35 +4,37 @@
 
 {% block body %}
 
-    <div class="container-fluid body-manga">
+    <div class="container-fluid main-catalogue">
+        {#S'il n'y a pas de séries ds la bdd#}
         {% if mangas is empty %}
             <div class="row">
                 <p>Aucun mangas à afficher</p>
             </div>
+            {#sinon, on les affiche#}
         {% else %}
-            <!--parties mangas-->
-            <section class="row">
+            <!--titre-->
+            <div class="row no-margin">
                 <div class="col-12 text-center p-5">
-                    <h1>Mangas</h1>
-                    <p class="col-12 text-center"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
+                    <h1 class="custom-title">Mangas</h1>
+                    <p class="col-12 text-center harryP"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
                 </div>
-            </section>
+            </div>
 
-            <section class="row">
+            <!--Cards des mangas-->
+            <div class="row row-cols-1 row-cols-md-3 no-margin">
+                {% for manga in mangas %}
+                    <div class="col mb-4">
 
-                <div class="card-deck col-12">
-                    {% for manga in mangas %}
-                        <div class="card">
+                        <div class="card h-100 white-shadow">
                             <img src="{{ manga.poster }}" class="card-img-top" alt="Jurassic Park">
                             <div class="card-body">
                                 <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ manga.title }}</bold></h5></a>
                                 <p class="card-text">{{ manga.summary }}</p>
                             </div>
                         </div>
+                    </div>
                     {% endfor %}
-
-                </div>
-            </section>
+            </div>
         {% endif %}
     </div>
 

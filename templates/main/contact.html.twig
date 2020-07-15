@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+    <section class="body-contact">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-center">
+
+                    <h1 class="col-12 pb-5 pt-5">Vous avez un problème avec le site ?</h1>
+
+                    <form>
+
+                        <div class="form-group m-auto col-sm-7 pt-5">
+                            <label for="contact-title" class="form-title  pb-2">Sujet du problème avec le site ?</label>
+                            <input type="text" class="form-control" id="contact-title" placeholder="sujet...(Ex: connexion, etc..)">
+                        </div>
+
+                        <div class="form-group pt-5 pb-5 m-auto col-sm-7">
+                            <label for="contact-message" class="form-title col-12 pb-2">Quel est votre problème ?</label>
+                            <textarea class="form-control" id="contact-message" rows="3" placeholder="Dite moi votre problème...."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn but">Envoyer votre problème</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -52,7 +52,19 @@ a{
 
 a:hover{
     text-decoration: none;
-    color: goldenrod;
+    color: black;
+    -webkit-box-shadow: -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
+    cursor: pointer;
+}
+
+.link-view:hover{
+    text-decoration: none;
+    color: snow;
+    -webkit-box-shadow: -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
 }
 
 hr{
@@ -69,39 +81,6 @@ hr{
     text-decoration: none;
     color: goldenrod;
 }
-
-
-
-
-/*Propriétés sur navbar*/
-
-.search{
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-
-.form-control{
-    margin-bottom: 0.5rem;
-}
-
-.form-inline{
-    margin: auto;
-}
-
-
-.user-name{
-    font-size: 0.75rem;
-    color: lightgray;
-}
-
-.credits{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-
 
 .h6{
     font-size: 0.75rem;
@@ -187,7 +166,7 @@ hr{
     }
 }
 /**Format tablette*/
-@media screen and (min-width: 600px) and (max-width: 1006px){
+@media screen and (min-width: 576px) and (max-width: 1006px){
     /*images pas d'accueil*/
     #home-ban{
         height: 450px;
@@ -195,21 +174,36 @@ hr{
     #home-ban2{
         height: 450px;
     }
+    .card-deck{
+        flex-direction: column;
+    }
+    .card-deck .card{
+        margin: auto;
+        margin-top: 1rem;
+    }
+
 }
 
 
 /*Page Catalogue(index)*/
 .main-catalogue{
-    background-color: #868484
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 3%, rgba(106,105,105,1) 52%, rgba(4,49,58,1) 100%);
 }
 /*Titre principal (='catalogue')*/
 .custom-title{
     font-family: 'Corleone';
     font-size: 5rem;
+    text-shadow: 7px 7px 3px rgba(150, 150, 150, 1);
+}
+
+.harryP{
+    font-family: 'HarryP';
+    font-size: larger;
 }
 
 /*Titres de la page catalogue (='series, films, mangas')*/
-.gallery{
+.font-alias{
     font-family: 'Alias';
 }
 
@@ -218,12 +212,22 @@ hr{
     margin: auto;
     width: 100%;
 }
+/*Ombres blanches sur mes cards*/
+.white-shadow:hover{
+    -webkit-box-shadow: -1px -1px 18px 0px rgba(250, 250, 250, 0.75);
+    -moz-box-shadow:    -1px -1px 18px 0px rgba(250, 250, 250, 0.75);
+    box-shadow:         -1px -1px 18px 0px rgba(250, 250, 250, 0.75);
+}
 /*Mes liens 'voir tout'*/
 .link-view{
     font-family: 'Corleone';
 }
 
-/**Media Queries page catalogue*/
+.no-margin{
+    margin: 0;
+}
+
+/**Media Queries page catalogue_index*/
 /*Format mobile*/
 @media screen and (min-width: 320px) and (max-width: 600px){
     .container-fluid{
@@ -249,6 +253,7 @@ hr{
 @media screen and (min-width: 600px) and (max-width: 1006px){
     .container-fluid{
         display: flex;
+        flex-direction: column;
     }
 
     .nav-main{
@@ -285,10 +290,18 @@ hr{
     }
 }
 
-/*Format grand écran*/
-@media screen and (min-width: 1006px) and (max-width: 1600px){
 
-}
+
+
+
+
+
+
+
+
+
+
+
 
 /*page view*/
 .main-view{

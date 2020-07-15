@@ -4,35 +4,34 @@
 
 {% block body %}
 
-    <div class="container-fluid body-film">
+    <div class="container-fluid main-catalogue">
+    {#S'il n'y a pas de films ds la bdd#}
     {% if movies is empty %}
         <div class="row">
             <p>Aucun film à afficher</p>
         </div>
-
+    {#sinon, on les affiche#}
     {% else %}
-        <!--parties films-->
-        <section class="row">
+        <!--titres-->
+        <div class="row no-margin">
             <div class="col-12 text-center p-5">
-                <h1>Films</h1>
-                <p class="col-12 text-center"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
+                <h1 class="custom-title">Films</h1>
+                <p class="col-12 text-center harryP"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
             </div>
-        </section>
+        </div>
 
-        <section class="row">
-
-
-            <div class="card-deck col-12">
-
-                {% for movie in movies %}
-
-                    <div class="card">
+        <!--Partie principal: cards de films-->
+        <div class="row row-cols-1 row-cols-md-3 no-margin">
+            {% for movie in movies %}
+                <div class="col mb-4">
+                    <div class="card h-100 white-shadow">
                         <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
                         <div class="card-body">
-                            <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ movie.title }}</bold></h5></a>
+                            <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
                             <p class="card-text">{{ movie.summary }}</p>
                         </div>
                     </div>
+                </div>
                 {% endfor %}
             </div>
 
@@ -50,7 +49,7 @@
                 </div>
             </div>
 
-        </section>
+        </div>
 
     {% endif %}
 
