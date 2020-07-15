@@ -49,7 +49,7 @@ class AppFixtures extends Fixture
                  ->setTitle( $faker->sentence ) // Phrase aléatoire
                  ->setSummary( $faker->sentence)
                  ->setType( $faker->randomElement(self::$serieTypes))
-                 ->setposter( 'a.png' )
+                 ->setposter( $faker->imageUrl($width = 640, $height = 480) )
                  ->setStartYear( $faker->dateTimeBetween('-20years', 'now') )   // Date aléatoire entre maintenant et il y a 20 ans
             ;
      
