@@ -202,11 +202,11 @@ class CatalogueController extends AbstractController
      */
     public function addWatchedMovie(Movie $movie)
     {
+        //récupère l'utilisateur connecté
         $connectedUser = $this->getUser();        
 
+        //utilisation de la fonction présente dans l'entité User
         $connectedUser->addMoviesWatched($movie);
-
-
 
         // Récupération du manager des entités de Doctrine
         $entityManager = $this->getDoctrine()->getManager();
@@ -227,11 +227,11 @@ class CatalogueController extends AbstractController
      */
     public function removeWatchedMovie(Movie $movie)
     {
+        //récupère l'utilisateur connecté
         $connectedUser = $this->getUser();        
 
+         //utilisation de la fonction présente dans l'entité User
         $connectedUser->removeMoviesWatched($movie);
-
-
 
         // Récupération du manager des entités de Doctrine
         $entityManager = $this->getDoctrine()->getManager();

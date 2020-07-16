@@ -41,15 +41,15 @@
 
                     <div class="col mb-4">
                         <div class="card h-100 white-shadow ">
-                            <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
+                            <img src="{{ asset(movie.poster)}}" class="card-img-top" alt="Jurassic Park">
                             <div class="card-body">
                                 {% if movie in app.user.moviesWatched %}
-                                    <a href="{{path('catalogue_remove_movie_to_watched', {id:movie.id})}}">
-                                        <i class="fas fa-eye text-success eye-view"></i> vu
+                                    <a class="border d-block border-success text-center text-success eye-view" href="{{path('catalogue_remove_movie_to_watched', {id:movie.id})}}">
+                                        <i class="fas fa-eye text-success "></i> vu
                                     </a>
                                 {% else %}    
-                                    <a href="{{path('catalogue_add_movie_to_watched', {id:movie.id})}}">    
-                                        <i class="fas fa-eye text-secondary eye-view"></i> 
+                                    <a class="border d-block border-light text-center eye-view" href="{{path('catalogue_add_movie_to_watched', {id:movie.id})}}">    
+                                        <i class="fas fa-eye-slash text-muted eye-view"></i>
                                     </a>
                                 {% endif %}
                                 <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ movie.title }}</bold></h5></a>
@@ -86,7 +86,7 @@
 
                     <div class="col mb-4">
                         <div class="card h-100 white-shadow ">
-                            <img src="{{ serie.poster }}" class="card-img-top" alt="Jurassic Park">
+                            <img src="{{ asset(serie.poster)}}" class="card-img-top" alt="Jurassic Park">
                             <div class="card-body">
                                
                                 <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ serie.title }}</bold></h5></a>

@@ -58,7 +58,7 @@ easy_admin:
                     - {property: 'type', label: 'Genre'}
                     - {property: 'releaseDate', label: 'Date de sortie'}
                     - {property: 'duration', label: 'durée'}
-                    - {property: 'poster',  type: 'image', base_path: 'images/movie/', label: 'Affiche'}
+                    - {property: 'poster',  type: 'image', label: 'Affiche'}
             edit:
                 title: 'Modifier un film'
                 fields:
@@ -75,7 +75,7 @@ easy_admin:
                     - {property: 'type', label: 'Genre'}
                     - {property: 'releaseDate',type: 'date', label: 'Date de sortie'}
                     - {property: 'duration', label: 'durée'}
-                    - {property: 'poster',  type: 'file', base_path: 'images/movie/', label: 'Affiche'}
+                    - {property: 'poster',  type: 'file', base_path: 'img/movie/', label: 'Affiche'}
         Serie:
             class: App\Entity\Serie
             label: 'Série'
@@ -88,7 +88,7 @@ easy_admin:
                     - {property: 'summary', label: 'Résumé'}
                     - {property: 'type', label: 'Genre'}
                     - {property: 'startYear', label: 'Date de début'}
-                    - {property: 'poster',  type: 'image', base_path: 'images/serie/', label: 'Affiche'}
+                    - {property: 'poster',  type: 'image', label: 'Affiche'}
             edit:
                 title: 'Modifier un serie'
                 fields:

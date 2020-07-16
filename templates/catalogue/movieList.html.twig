@@ -25,7 +25,7 @@
             {% for movie in movies %}
                 <div class="col mb-4">
                     <div class="card h-100 white-shadow">
-                        <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
+                        <img src="{{ asset(movie.poster) }}" class="card-img-top" alt="jaquette du film">
                         <div class="card-body">
                             <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
                             <p class="card-text">{{ movie.summary }}</p>
