@@ -108,11 +108,18 @@ hr{
 #home-ban{
     height: 250px;
     width: 100%;
+    background-image: url('../img/fond_mosaic_film_moitier1.jpg');
+    background-size: cover;
+
+
 }
 
 #home-ban2{
     width: 100%;
     height: 400px;
+    background-size: cover;
+    background-image: url('../img/fond_mosaic_film_moitier2.jpg');
+
 }
 
 /*section principal de l'accueil(avec titres et paragraphes de présentations*/
@@ -159,7 +166,7 @@ hr{
 
     /*images pas d'accueil*/
     #home-ban{
-        height: 300px;
+        height: 250px;
     }
     #home-ban2{
         height: 300px;
@@ -169,7 +176,7 @@ hr{
 @media screen and (min-width: 576px) and (max-width: 1006px){
     /*images pas d'accueil*/
     #home-ban{
-        height: 450px;
+        height: 250px;
     }
     #home-ban2{
         height: 450px;

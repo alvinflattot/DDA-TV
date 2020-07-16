@@ -105,9 +105,8 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
             return new RedirectResponse($targetPath);
         }
 
-        // Message de succès de connexion
-        
-        $this->session->getFlashBag()->add('success', 'Connexion réussie !');
+        // // Message de succès de connexion
+        // $this->session->getFlashBag()->add('success', 'Connexion réussie !');
 
          // Redirection de l'utilisateur connecté vers la page d'accueil, qui affichera le message de succès
          return new RedirectResponse($this->urlGenerator->generate('catalogue_index'));

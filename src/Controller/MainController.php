@@ -49,7 +49,10 @@ class MainController extends AbstractController
      */
     public function profilSettings()
     {
-        
+        // Redirection vers une autre page du site si l'utilisateur est déjà connecté.
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('home');
+        }
         return $this->render('main/setting.html.twig');
     }
 
@@ -60,8 +63,10 @@ class MainController extends AbstractController
      */
     public function profil()
     {
-        
-
+        // Redirection vers une autre page du site si l'utilisateur est déjà connecté.
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('home');
+        }
         // On envoi les movies récupérés à la vue
         return $this->render('main/profil.html.twig',);
     }

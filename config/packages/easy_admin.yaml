@@ -65,7 +65,7 @@ easy_admin:
                     - {property: 'title', label: 'titre'}
                     - {property: 'summary', label: 'Résumé'}
                     - {property: 'type', label: 'Genre'}
-                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'releaseDate', type: 'date', label: 'Date de sortie'}
                     - {property: 'duration', label: 'durée'}
             new:
                 title: 'Créer un nouveau film'
@@ -73,7 +73,7 @@ easy_admin:
                     - {property: 'title', label: 'titre'}
                     - {property: 'summary', label: 'Résumé'}
                     - {property: 'type', label: 'Genre'}
-                    - {property: 'releaseDate', label: 'Date de sortie'}
+                    - {property: 'releaseDate',type: 'date', label: 'Date de sortie'}
                     - {property: 'duration', label: 'durée'}
                     - {property: 'poster',  type: 'file', base_path: 'images/movie/', label: 'Affiche'}
         Serie:

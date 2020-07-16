@@ -5,17 +5,17 @@
 {% block body %}
 
     <!--Partie principale avec les cards-->
-    <div class="container-fluid d-flex flex-column pt-1 main-catalogue">
+    <div class="container-fluid d-flex flex-column pt-1 pb-3 main-catalogue">
 
 
         {# Titre h1 #}
         <div class="row">
-            <h1 class="col-12 text-center my-5 custom-title">Catalogue</h1>
+            <h1 class="col-12 text-center my-3 custom-title">Catalogue</h1>
         </div>
 
 
         <!--Partie séries-->
-        <section class="row shows">
+        <section class="row shows my-4">
 
             <div class="col-12 title d-flex justify-content-between">
                 <h2 class="font-alias text-white">Series</h2>
@@ -25,10 +25,10 @@
             <div class="card-deck col-12 m-auto">
                 {% for serie in series %}
                     <div class="card  white-shadow">
-                        <img src="{{ serie.poster }}" class="card-img-top" alt="Kaamelott">
+                        <img src="{{ asset(serie.poster)}}" class="card-img-top" alt="jaquette du film">
                         <div class="card-body">
                             <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ serie.title }}</h5></a>
-                            <p class="card-text">{{ serie.summary }}</p>
+                            {# <p class="card-text">{{ serie.summary }}</p> #}
                             <p class="card-text"><small class="text-muted">Date de commencement : le {{ serie.startYear|date('d/m/Y') }}</small></p>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
         </section>
 
         <!--parties films-->
-        <section class="row movies pt-5">
+        <section class="row movies my-4">
 
             <div class="col-12 title d-flex justify-content-between">
                 <h2 class="font-alias text-white">Films</h2>
@@ -50,10 +50,10 @@
                 <div class="card-deck col-12 m-auto">
                     {% for movie in movies %}
                         <div class="card white-shadow">
-                            <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
+                            <img src="{{ asset(movie.poster)}}" class="card-img-top" alt="jaquette de la série">
                             <div class="card-body">
                                 <a href="#"  title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
-                                <p class="card-text">{{ movie.summary }}</p>
+                                {# <p class="card-text">{{ movie.summary }}</p> #}
                                 <p class="card-text"><small class="text-muted">Date de sortie : {{ movie.releaseDate|date('d/m/Y') }}</small></p>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
         </section>
 
         <!--Partie Mangas-->
-        <section class="row mangas pt-5">
+        {# <section class="row mangas pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
                 <h2 class="font-alias text-white">Mangas</h2>
@@ -83,7 +83,7 @@
                     {% endfor %}
                 </div>
 
-        </section>
+        </section> #}
 
 
 

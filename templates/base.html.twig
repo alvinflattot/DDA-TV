@@ -28,14 +28,16 @@
                 <a class="navbar-brand" href="{{ path('home') }}" id="DDA">
                     <img src="{{ asset('img/dda_logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">DDA TV </a></div>
             <div class="list-group list-group-flush">
-                <form class="row form-inline my-2 my-lg-0 search bg-dark">
+                {#TODO: Formulaire de recherche#}
+                {# <form class="row form-inline my-2 my-lg-0 search bg-dark">
                     <input class="form-control mr-sm-2" type="search" placeholder="Que cherchez-vous ?" aria-label="Search">
                     <button class="btn btn-outline-light gold my-2 my-sm-0 mt-1" type="submit">Rechercher</button>
-                </form>
+                </form> #}
                 {#Boutons si l'utilisateur est co#}
                 {% if app.user %}
                     <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name"><i class="fas fa-user"></i>&nbsp;&nbsp;{{app.user.firstname}} {{app.user.lastname}}</p>
-                    <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name">Temps de visionnage : xx jours xx heures xx minutes</p>
+                    {#TODO: temps de visionnage#}
+                    {# <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name">Temps de visionnage : xx jours xx heures xx minutes</p> #}
                     <a href="{{ path('profil') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-edit"></i> Profil</a>
                     <a href="{{ path('catalogue_index') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-book-reader"></i> Catalogue</a>
                     <a href="{{ path('my_setting') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-cog"></i> Paramètres</a>
@@ -48,6 +50,7 @@
                     <a href="{{ path('app_login') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
                     <a href="{{ path('app_register') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-plus"></i> S'inscrire</a>
                 {% endif %}
+                {#TODO: Contact#}
                 {# <a href="{{ path('contact') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a> #}
                 {# <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a> #}
             </div>

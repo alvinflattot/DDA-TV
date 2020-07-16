@@ -49,14 +49,30 @@ class AppFixtures extends Fixture
                  ->setTitle( $faker->sentence ) // Phrase aléatoire
                  ->setSummary( $faker->sentence)
                  ->setType( $faker->randomElement(self::$serieTypes))
-                 ->setposter( $faker->imageUrl($width = 640, $height = 480) )
+                 ->setposter( 'img/jaquette'.$faker->numberBetween($min = 1, $max = 10).'.png' )
                  ->setStartYear( $faker->dateTimeBetween('-20years', 'now') )   // Date aléatoire entre maintenant et il y a 20 ans
             ;
      
             // Enregistrement du nouvel film auprès de Doctrine
             $manager->persist($newSerie);
 
+            $series[] = $newSerie;
+
         }
+
+        $rickMorty = new Serie();
+     
+        $rickMorty 
+             ->setTitle("Rick et Morty") 
+             ->setSummary("Rick est un scientifique âgé et déséquilibré qui a récemment renoué avec sa famille. Il passe le plus clair de son temps à entraîner son petit-fils Morty dans des aventures extraordinaires et dangereuses, à travers l'espace et dans des univers parallèles.")
+             ->setType( 'animation')
+             ->setposter( 'img/jaquette'.$faker->numberBetween($min = 1, $max = 10).'.png' )
+             ->setStartYear( $faker->dateTimeBetween('-20years', 'now') ) 
+        ;
+ 
+        // Enregistrement du nouvel film auprès de Doctrine
+        $manager->persist($newSerie);
+
 
         //////ces saisons ///////
         for($i = 1; $i <= 20; $i++){
@@ -106,13 +122,15 @@ class AppFixtures extends Fixture
                 ->setTitle( $faker->sentence ) // Phrase aléatoire
                 ->setSummary( $faker->sentence)
                 ->setType( $faker->word)
-                ->setposter( $faker->imageUrl($width = 640, $height = 480) )
+                ->setposter( 'img/jaquette'.$faker->numberBetween($min = 1, $max = 10).'.png' )
                 ->setDuration( $faker->numberBetween($min = 30, $max = 97200))
                 ->setReleaseDate( $faker->dateTimeBetween('-20years', 'now') )   // Date aléatoire entre maintenant et il y a 20 ans
             ;
             
             // Enregistrement du nouvel film auprès de Doctrine
             $manager->persist($newMovie);
+
+            $movies[] = $newMovie;
 
         }
 
@@ -126,7 +144,7 @@ class AppFixtures extends Fixture
             ->setTitle( 'Totoro' ) // Phrase aléatoire
             ->setSummary( 'Deux petites filles, Mei, 4 ans, et Satsuki, 10 ans, s\'installent dans une grande maison à la campagne avec leur père pour se rapprocher de l\'hôpital où séjourne leur mère. Elles découvrent la nature tout autour de la maison et, surtout, l\'existence de créatures merveilleuses, les Totoros, avec qui elles deviennent très amies.')
             ->setType( 'animation')
-            ->setposter( $faker->imageUrl($width = 640, $height = 480) )
+            ->setposter( 'img/jaquette4.png' )
             ->setDuration( 86*60)
             ->setReleaseDate( new DateTime('1999-09-08') )   // Date aléatoire entre maintenant et il y a 20 ans
         ;
@@ -147,6 +165,11 @@ class AppFixtures extends Fixture
             ->setPassword($this->encoder->encodePassword($admin, 'Aaaaaa1+'))
             ->setActivated(true)    // Compte activé
             ->setActivationToken(md5( random_bytes(100) ))
+            ->addFavoriteMovie($faker->randomElement($movies))
+            ->addFavoriteMovie($faker->randomElement($movies))
+            ->addFavoriteMovie($faker->randomElement($movies))
+            ->addFavoriteSeries($faker->randomElement($series))
+            ->addFavoriteSeries($faker->randomElement($series))
         ;
 
         // Persistance du compte
