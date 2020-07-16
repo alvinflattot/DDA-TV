@@ -39,13 +39,16 @@
                     <a href="{{ path('profil') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-edit"></i> Profil</a>
                     <a href="{{ path('catalogue_index') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-book-reader"></i> Catalogue</a>
                     <a href="{{ path('my_setting') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-cog"></i> Paramètres</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="list-group-item list-group-item-action bg-dark text-white" href="{{ path('easyadmin') }}"><i class="fas fa-tools mr-1"></i>Administration</a>
+                    {% endif %}
                     <a href="{{ path('app_logout') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
                 {#Boutons si l'utilisateur n'est pas co#}
                 {% else %}
                     <a href="{{ path('app_login') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
                     <a href="{{ path('app_register') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-plus"></i> S'inscrire</a>
                 {% endif %}
-                <a href="{{ path('contact') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a>
+                {# <a href="{{ path('contact') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a> #}
                 {# <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a> #}
             </div>
 
