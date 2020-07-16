@@ -7,47 +7,103 @@
 {# le block body dans le squelette sera rempli avec le contenu de ce block #}
 {% block body %}
 
-    <div class="container-fluid">
+    <div class="container-fluid  ">
 
-        {# Affichage des messages flashs de type "success" si il y en a #}
-        {% include 'partials/flashes/success.html.twig' %}
-        {# Affichage des messages flashs de type "error" si il y en a #}
-        {% include 'partials/flashes/error.html.twig' %}
+        <div class="col-md-8 offset-md-2">
+            {# Affichage des messages flashs de type "success" si il y en a #}
+            {% include 'partials/flashes/success.html.twig' %}
+            {# Affichage des messages flashs de type "error" si il y en a #}
+            {% include 'partials/flashes/error.html.twig' %}
+        </div>
         
         {# Titre h1 #}
         <div class="row">
-            <h1 class="col-12 text-center my-5">Mes Films et Séries </h1>
+            <h1 class="col-12  m-3">Mes Films et Séries </h1>
         </div>
 
-        <div class="row my-3">
+        {# liste des films ###############################################################}
+        <div class="row">
             <div class="col-12 text-center">
-
-                {# Si aucun film/série est suivi#}
-                {% if app.user.favoriteMovies is empty and app.user.favoriteSeries %}
-                    <p>Vous n'avez pas encore suivi de films ou séries</p>
-                {% endif %}
-
-                <h1>Liste des films</h1>
-                {% for movie in app.user.favoriteMovies %}
-                    <img src="{{movie.poster}}" alt="">
-                   <p>Titre : {{movie.title}} </p>
-                   <p>Résumé: {{movie.summary}} </p>
-                   <p>Type : {{movie.type}} </p>
-                   <p>Date de sortie : {{movie.releaseDate|date('d/m/Y')}} </p>
-                   <p>Durée : {{movie.duration}} </p>
-                   
-               {% endfor %}
-
-               <h1>Liste des Série</h1>
-               {% for serie in app.user.favoriteSeries %}
-                    <img src="{{serie.poster}}" alt="">
-                   <p>Titre : {{serie.title}} </p>
-                   <p>Résumé: {{serie.summary}} </p>
-                   <p>Type : {{serie.type}} </p>
-                   
-               {% endfor %}
+                <h2 >Liste des films</h2>
             </div>
         </div>
+
+        <div class="row row-cols-1 row-cols-md-3 no-margin">
+            
+            {% if app.user.favoriteMovies is empty %} {#Si aucun film a affiché message d'erreur #}
+
+                <p>Vous ne suivez aucun film !</p>
+
+            {% else %} {# Sinon on afiche les films #}
+
+                {# Affiche tous les films suivis#}
+                {% for movie in app.user.favoriteMovies %}
+
+                    <div class="col mb-4">
+                        <div class="card h-100 white-shadow ">
+                            <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
+                            <div class="card-body">
+                                {% if movie in app.user.moviesWatched %}
+                                    <a href="{{path('catalogue_remove_movie_to_watched', {id:movie.id})}}">
+                                        <i class="fas fa-eye text-success eye-view"></i> vu
+                                    </a>
+                                {% else %}    
+                                    <a href="{{path('catalogue_add_movie_to_watched', {id:movie.id})}}">    
+                                        <i class="fas fa-eye text-secondary eye-view"></i> 
+                                    </a>
+                                {% endif %}
+                                <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ movie.title }}</bold></h5></a>
+                                <a href="{{path('catalogue_remove_movie_to_favorite', {id:movie.id})}}">
+                                    <p class="text-danger">Ne plus suivre ce film <i class="far fa-times-circle"></i></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        </div>
+
+        {# liste des séries ###############################################################}
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 >Liste des films</h2>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 no-margin">
+            
+            {% if app.user.favoriteSeries is empty %} {#Si aucun film a affiché message d'erreur #}
+
+                <p>Vous ne suivez aucun film !</p>
+
+            {% else %} {# Sinon on afiche les films #}
+
+                {# Affiche tous les films suivis#}
+                {% for serie in app.user.favoriteSeries %}
+
+                    <div class="col mb-4">
+                        <div class="card h-100 white-shadow ">
+                            <img src="{{ serie.poster }}" class="card-img-top" alt="Jurassic Park">
+                            <div class="card-body">
+                               
+                                <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ serie.title }}</bold></h5></a>
+                                <a href="{{path('catalogue_remove_serie_to_favorite', {id:serie.id})}}">
+                                    <p class="text-danger">Ne plus suivre cette série <i class="far fa-times-circle"></i></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        </div>
+        
+
 
         
 

@@ -143,4 +143,160 @@ class CatalogueController extends AbstractController
     }
 
 
+    // Gestion des Films ///////////////////////////////////////////////////////////////////
+    /**
+     * Page pour aouter un film à sa liste de favoris
+     * 
+     * @Route("/film/ajouter-aux-favoris/{id}", name="add_movie_to_favorite" )
+     *
+     */
+    public function addFavoriteMovie(Movie $movie)
+    {
+        $connectedUser = $this->getUser();        
+
+        $connectedUser->addFavoriteMovie($movie);
+
+
+
+        // Récupération du manager des entités de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+
+        // Message flash de succès
+        $this->addFlash('success', 'Vous avez bien ajouté ce film à vos favoris');
+
+        // Redirection de l'utilisateur sur sa page profil 
+        return $this->redirectToRoute('profil');
+    }
+
+    /**
+     * Page pour supprimer un film de la liste des favoris
+     * 
+     * @Route("/film/supprimer-des-favoris/{id}", name="remove_movie_to_favorite" )
+     *
+     */
+    public function removeFavoriteMovie(Movie $movie)
+    {
+        $connectedUser = $this->getUser();        
+
+        $connectedUser->removeFavoriteMovie($movie);
+
+
+
+        // Récupération du manager des entités de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+
+        // Message flash de succès
+        $this->addFlash('success', 'Vous avez bien supprimé ce film de vos favoris');
+
+        // Redirection de l'utilisateur sur sa page profil 
+        return $this->redirectToRoute('profil');
+    }
+    
+    /**
+     * Page pour marquer un film comme 'vu'
+     * 
+     * @Route("/film/ajouter-aux-vues/{id}", name="add_movie_to_watched" )
+     *
+     */
+    public function addWatchedMovie(Movie $movie)
+    {
+        $connectedUser = $this->getUser();        
+
+        $connectedUser->addMoviesWatched($movie);
+
+
+
+        // Récupération du manager des entités de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+
+        // Message flash de succès
+        $this->addFlash('success', 'Vous avez bien ajouté ce film à vos vues');
+
+        // Redirection de l'utilisateur sur sa page profil 
+        return $this->redirectToRoute('profil');
+    }
+
+    /**
+     * Page pour marquer un film comme non 'vu'
+     * 
+     * @Route("/film/supprimer-des-vues/{id}", name="remove_movie_to_watched" )
+     *
+     */
+    public function removeWatchedMovie(Movie $movie)
+    {
+        $connectedUser = $this->getUser();        
+
+        $connectedUser->removeMoviesWatched($movie);
+
+
+
+        // Récupération du manager des entités de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+
+        // Message flash de succès
+        $this->addFlash('success', 'Vous avez bien supprimé ce film de vos vues');
+
+        // Redirection de l'utilisateur sur sa page profil 
+        return $this->redirectToRoute('profil');
+    }
+
+    // Gestion des Séries ///////////////////////////////////////////////////////////////////
+     /**
+     * Page pour aouter un serie à sa liste de favoris
+     * 
+     * @Route("/serie/ajouter-aux-favoris/{id}", name="add_serie_to_favorite" )
+     *
+     */
+    public function addFavoriteSerie(Serie $serie)
+    {
+        $connectedUser = $this->getUser();        
+
+        $connectedUser->addFavoriteSerie($serie);
+
+
+
+        // Récupération du manager des entités de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+
+        // Message flash de succès
+        $this->addFlash('success', 'Vous avez bien ajouté cette serie de vos favoris');
+
+        // Redirection de l'utilisateur sur sa page profil 
+        return $this->redirectToRoute('profil');
+    }
+
+    /**
+     * Page pour supprimer un serie de la liste des favoris
+     * 
+     * @Route("/serie/supprimer-des-favoris/{id}", name="remove_serie_to_favorite" )
+     *
+     */
+    public function removeFavoriteSerie(Serie $serie)
+    {
+        $connectedUser = $this->getUser();        
+
+        $connectedUser->removeFavoriteSeries($serie);
+
+
+
+        // Récupération du manager des entités de Doctrine
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->flush();
+
+        // Message flash de succès
+        $this->addFlash('success', 'Vous avez bien supprimé cette serie de vos favoris');
+
+        // Redirection de l'utilisateur sur sa page profil 
+        return $this->redirectToRoute('profil');
+    }
+    
+    
+
+    
+
 }

@@ -58,7 +58,7 @@ class AppFixtures extends Fixture
 
         }
 
-        //////ces saisons ///////////////////////////////////////////////////
+        //////ces saisons ///////
         for($i = 1; $i <= 20; $i++){
 
             $newSeason = new Season();
@@ -74,7 +74,7 @@ class AppFixtures extends Fixture
 
         }
         
-        //////ces épisodes /////////////////////////////////////////////////
+        //////ces épisodes ///////
         for($i = 1; $i <= 100; $i++){
 
             $newEpisode = new Episode;

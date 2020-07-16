@@ -49,6 +49,7 @@ class MainController extends AbstractController
      */
     public function profilSettings()
     {
+        
         return $this->render('main/setting.html.twig');
     }
 
