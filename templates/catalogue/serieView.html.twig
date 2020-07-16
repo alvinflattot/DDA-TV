@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{#TODO: Remplacer title par le nom de la série en bdd#}
+{% block title %}{{ serie.title }}{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+
+        <!--fiche technique-->
+        <section class="row d-flex">
+
+            <div class="col-12 text-center position-absolute pt-5 view-title">
+
+                <h1 class="col-12 pt-2 big-title">{{ serie.title }}</h1>
+
+                <button class="col-12 p-3 view-button"><a href="#">+ Ajouter à mes séries</a></button>
+
+            </div>
+
+            <div class="col-12">
+
+                <img src="images/jurassic.png" alt="jurassic" class="img-view">
+
+            </div>
+
+        </section>
+
+        <section class="row d-flex justify-content-end">
+
+            <div class="col-12 pt-4">
+
+                <h4 class="title-h4">Episodes</h4>
+
+            </div>
+
+            <div class="col-sm-md-7 pb-5 d-flex justify-content-end">
+
+                <button class="col-sm-md-7 view-button-saison p-1 mr-4"><a href="#">SAISON 2</a></button>
+
+            </div>
+
+            <div class="col-12">
+
+                <p class="col-12">1  blahblahblah  01-12-2000</p>
+                <p class="col-12">1  blahblahblah  01-12-2000</p>
+                <p class="col-12">1  blahblahblah  01-12-2000</p>
+                <p class="col-12">1  blahblahblah  01-12-2000</p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

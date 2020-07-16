@@ -6,6 +6,7 @@ use App\Repository\SerieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=SerieRepository::class)
@@ -23,6 +24,24 @@ class Serie
      * @ORM\Column(type="string", length=500)
      */
     private $title;
+
+    /**
+     * @ORM\Column(type="string", length=500, unique=true)
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $slug;
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
 
     /**
      * @ORM\Column(type="string", length=40)

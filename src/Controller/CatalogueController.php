@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use App\Entity\Movie;
 use App\Entity\Serie;
+use App\Form\SerieType;
 
 /**
  * Class CatalogueController
@@ -128,13 +129,18 @@ class CatalogueController extends AbstractController
         ]);
     }
 
+
+
     /**
-     * Page vue seul (test vue kaamelott)
-     * @Route("/view", name="view")
+     * Page vue série seul
+     * @Route("/view/{slug}", name="serie_view", requirements={"id"="\d+"})
      */
-    public function view(){
-        return $this->render('catalogue/view.html.twig', [
+    public function serieView(Serie $serie){
+        return $this->render('catalogue/serieView.html.twig', [
             'controller_name' => 'CatalogueController',
+            'serie' => $serie
         ]);
     }
+
+
 }
