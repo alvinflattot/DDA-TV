@@ -229,7 +229,7 @@ html body div#wrapper.d-flex div#page-content-wrapper div.container-fluid.main-c
 /*Mes liens 'voir tout'*/
 .link-view{
     font-family: 'Simpsonsfont';
-    color: goldenrod;
+    color: gray;
     font-size: 1.5rem;
 }
 
