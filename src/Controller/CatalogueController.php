@@ -133,12 +133,40 @@ class CatalogueController extends AbstractController
 
     /**
      * Page vue série seul
-     * @Route("/view/{slug}", name="serie_view", requirements={"id"="\d+"})
+     * @Route("/view/serie/{slug}", name="serie_view", requirements={"id"="\d+"})
+     *
+     *
      */
     public function serieView(Serie $serie){
         return $this->render('catalogue/serieView.html.twig', [
             'controller_name' => 'CatalogueController',
             'serie' => $serie
+        ]);
+    }
+
+    /**
+     * Page vue film seul
+     * @Route("/view/movie", name="movie_view")
+     *
+     */
+    public function movieView(){
+
+        return $this->render('catalogue/movieView.html.twig', [
+            'controller_name' => 'CatalogueController'
+
+        ]);
+    }
+
+    /**
+     * Page vue manga seul
+     * @Route("/view/manga", name="manga_view")
+     *
+     */
+    public function mangaView(){
+
+        return $this->render('catalogue/mangaView.html.twig', [
+            'controller_name' => 'CatalogueController'
+
         ]);
     }
 

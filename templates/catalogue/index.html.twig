@@ -18,7 +18,7 @@
         <section class="row shows">
 
             <div class="col-12 title d-flex justify-content-between">
-                <h2 class="font-alias text-white">Series</h2>
+                <h2 class="h2-simpsons">Series</h2>
                 <a href="{{ path('catalogue_serie_list') }}" class="link-view">Voir tout </a>
             </div>
 
@@ -27,7 +27,7 @@
                     <div class="card  white-shadow">
                         <img src="{{ serie.poster }}" class="card-img-top" alt="Kaamelott">
                         <div class="card-body">
-                            <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ serie.title }}</h5></a>
+                            <a href="{{ path('catalogue_serie_view', { slug: serie.slug }) }}" title="Voir la fiche technique"><h5 class="card-title">{{ serie.title }}</h5></a>
                             <p class="card-text">{{ serie.summary }}</p>
                             <p class="card-text"><small class="text-muted">Date de commencement : le {{ serie.startYear|date('d/m/Y') }}</small></p>
                         </div>
@@ -42,7 +42,7 @@
         <section class="row movies pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
-                <h2 class="font-alias text-white">Films</h2>
+                <h2 class="h2-simpsons">Films</h2>
                 <a href="{{ path('catalogue_movie_list') }}" class="link-view">Voir tout </a>
             </div>
 
@@ -52,7 +52,7 @@
                         <div class="card white-shadow">
                             <img src="{{ movie.poster }}" class="card-img-top" alt="Jurassic Park">
                             <div class="card-body">
-                                <a href="#"  title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
+                                <a href="{{ path('catalogue_movie_view') }}"  title="Voir la fiche technique"><h5 class="card-title">{{ movie.title }}</h5></a>
                                 <p class="card-text">{{ movie.summary }}</p>
                                 <p class="card-text"><small class="text-muted">Date de sortie : {{ movie.releaseDate|date('d/m/Y') }}</small></p>
                             </div>
@@ -66,7 +66,7 @@
         <section class="row mangas pt-5">
 
             <div class="col-12 title d-flex justify-content-between">
-                <h2 class="font-alias text-white">Mangas</h2>
+                <h2 class="h2-simpsons">Mangas</h2>
                 <a href="{{ path('catalogue_manga_list') }}" class="link-view">Voir tout </a>
             </div>
 
@@ -75,7 +75,7 @@
                         <div class="card  white-shadow">
                             <img src="{{ manga.poster }}" class="card-img-top" alt="attack of titans">
                             <div class="card-body">
-                                <a href="#" title="Voir la fiche technique"><h5 class="card-title">{{ manga.title }}</h5></a>
+                                <a href="{{ path('catalogue_manga_view') }}" title="Voir la fiche technique"><h5 class="card-title">{{ manga.title }}</h5></a>
                                 <p class="card-text">{{ manga.summary }}</p>
                                 <p class="card-text"><small class="text-muted">Date de commencement : le {{ manga.startYear|date('d/m/Y') }}</small></p>
                             </div>

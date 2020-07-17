@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style-error.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}"
+        <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style_view.css') }}">
 
          {# Inclusion des fichiers CSS individuels des pages #}
         {% block stylesheets %}{% endblock %}
@@ -24,14 +25,12 @@
 
         <!-- Sidebar -->
         <div class="bg-dark border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading bg-dark text-white">
-                <a class="navbar-brand" href="{{ path('home') }}" id="DDA">
-                    <img src="{{ asset('img/dda_logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">DDA TV </a></div>
+            <div class="sidebar-heading bg-dark text-white d-flex flex-column">
+                <a class="navbar-brand m-auto" href="{{ path('home') }}" id="DDA" style="font-family: 'Playfair Display', serif;">DDA TV </a>
+                <img src="{{ asset('img/dda_logo.png') }}" width="100" height="100" class="d-inline-block align-top m-auto" alt="" loading="lazy">
+            </div>
             <div class="list-group list-group-flush">
-                <form class="row form-inline my-2 my-lg-0 search bg-dark">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Que cherchez-vous ?" aria-label="Search">
-                    <button class="btn btn-outline-light gold my-2 my-sm-0 mt-1" type="submit">Rechercher</button>
-                </form>
+
                 {#Boutons si l'utilisateur est co#}
                 {% if app.user %}
                     <p class="list-group-item list-group-item-action bg-dark text-white mb-0 user-name"><i class="fas fa-user"></i>&nbsp;&nbsp;{{app.user.firstname}} {{app.user.lastname}}</p>
@@ -46,7 +45,7 @@
                     <a href="{{ path('app_register') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-user-plus"></i> S'inscrire</a>
                 {% endif %}
                 <a href="{{ path('contact') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-file-signature"></i> Contact</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a>
+                <a href="{{ path('mentions_legales') }}" class="list-group-item list-group-item-action bg-dark text-white"><i class="fas fa-asterisk"></i> Mentions légales</a>
             </div>
 
         <!-- /#sidebar-wrapper --></div>

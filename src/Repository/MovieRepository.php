@@ -35,15 +35,19 @@ class MovieRepository extends ServiceEntityRepository
     }
 
 
-    /*
-    public function findOneBySomeField($value): ?Movie
+    /**
+     * @return Movie[] Returns an array of Movie objects
+     * Création d'une méthode qui retournera les 3 derniers films enregistrées en bdd
+     *
+     */
+    public function findLast(): array
     {
         return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
+            ->orderBy('m.id', 'DESC')
+            ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
+
 }

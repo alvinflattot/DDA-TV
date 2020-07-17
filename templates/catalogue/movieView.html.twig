@@ -1,49 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{#TODO: Remplacer title par le nom de la série en bdd#}
-{% block title %}{{ serie.title }}{% endblock %}
+
+{% block title %}Jurassic Park{% endblock %}
 
 {% block body %}
 
+        <!--fiche technique-->
     <div class="container-fluid main-catalogue">
 
         <!--fiche technique-->
         <div class="row d-flex">
 
+
             <!--Header avec mon image mon titre et mon bouton d'insertion-->
             <div class="card col-8 offset-2 mt-5 p-0 white-shadow" >
-                <img src="{{ serie.poster }}" alt="serie" class="img-view">
+                <img src="{{ asset('img/jurassic.png') }}" alt="serie" class="img-view">
                 <div class="card-img-overlay border-secondary">
-                    <h5 class="card-title big-title text-center">{{ serie.title }}</h5>
-                    <div class="d-flex" style="height: 14rem;"><a href="#" class="btn btn-outline-warning m-auto">+ Ajouter à mes séries</a></div>
+                    <h5 class="card-title big-jurassic text-center">Jurassic Park</h5>
+                    <div class="d-flex" style="height: 14rem;"><a href="#" class="btn btn-outline-warning m-auto">+ Ajouter à mes films</a></div>
                 </div>
 
                 <!--Ma fiche technique-->
                 <div class="card-body">
-                    <p class="card-text lead">{{ serie.summary }}</p>
+                    <p class="card-text lead">John Parker Hammond, le PDG de la puissante compagnie InGen, parvient à donner vie à des dinosaures grâce à la génétique et décide de les utiliser dans le cadre d’un parc d'attractions qu’il compte ouvrir sur une île au large du Costa Rica.</p>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Type : <strong>{{ serie.type }}</strong>
+                            Genre : <strong>Science fiction</strong>
                         </li>
                         <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Date de commencement : <strong>{{ serie.startYear|date('d/m/Y') }}</strong>
+                            Réalisation : <strong>Steven Spielberg</strong>
                         </li>
                         <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Genre : <strong>Série Humoristique</strong>
+                            Production : <strong>Universal Pictures Amblin Entertainment</strong>
                         </li>
                         <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Création : <strong>Alexandre Astier</strong>
+                            Acteurs principaux : <strong>Sam Neill, Laura Dern, Jeff Goldblum ,Richard Attenborough
+                            </strong>
                         </li>
                         <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Production : <strong>CALT</strong>
+                            Durée (mn) :
+                            <span class="badge badge-primary badge-pill">127</span>
                         </li>
                         <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Nombre de Saisons :
-                            <span class="badge badge-primary badge-pill">5</span>
-                        </li>
-                        <li class="list-group-item  list-group-item-action d-flex justify-content-between align-items-center">
-                            Nombre d'épisodes :
-                            <span class="badge badge-primary badge-pill">458</span>
+                            Sortie :
+                            <span class="badge badge-primary badge-pill">1993</span>
                         </li>
                     </ul>
                 </div>
@@ -56,6 +56,10 @@
             </div>
         </div>
     </div>
+
+
+
+
 
 
 {% endblock %}

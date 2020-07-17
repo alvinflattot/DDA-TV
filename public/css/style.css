@@ -1,4 +1,5 @@
 /*Déclarations police d'écritures*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 @font-face
 {
     font-family : akbar;
@@ -53,19 +54,9 @@ a{
 a:hover{
     text-decoration: none;
     color: black;
-    -webkit-box-shadow: -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
-    box-shadow:         -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
     cursor: pointer;
 }
 
-.link-view:hover{
-    text-decoration: none;
-    color: snow;
-    -webkit-box-shadow: -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
-    -moz-box-shadow:    -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
-    box-shadow:         -1px -1px 18px 0px rgba(50, 50, 50, 0.75);
-}
 
 hr{
     width: 100%;
@@ -187,14 +178,15 @@ hr{
 
 /*Page Catalogue(index)*/
 .main-catalogue{
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 3%, rgba(106,105,105,1) 52%, rgba(4,49,58,1) 100%);
+    background: rgb(236,154,10);
+    background: linear-gradient(90deg, rgba(236,154,10,1) 10%, rgba(251,234,118,1) 50%, rgba(255,235,0,1) 92%);
 }
 /*Titre principal (='catalogue')*/
 .custom-title{
     font-family: 'Corleone';
-    font-size: 5rem;
-    text-shadow: 7px 7px 3px rgba(150, 150, 150, 1);
+    font-size: 7rem;
+    text-shadow: 7px 7px 3px goldenrod;
+    color: darkred;
 }
 
 .harryP{
@@ -205,6 +197,22 @@ hr{
 /*Titres de la page catalogue (='series, films, mangas')*/
 .font-alias{
     font-family: 'Alias';
+    font-size: 2rem;
+
+}
+
+/*Mes liens 'retour au catalogue'*/
+html body div#wrapper.d-flex div#page-content-wrapper div.container-fluid.main-catalogue div.row.no-margin div.col-12.text-center.p-5 p.col-12.text-center.font-alias a{
+    color: darkgoldenrod;
+}
+html body div#wrapper.d-flex div#page-content-wrapper div.container-fluid.main-catalogue div.row.no-margin div.col-12.text-center.p-5 p.col-12.text-center.font-alias a:hover{
+    color: black;
+    text-shadow: 4px 4px 3px rgb(150, 150, 150);
+}
+
+.h2-simpsons{
+    font-family: 'Simpsonsfont';
+    font-size: 3rem;
 }
 
 /*Mes 3 sections*/
@@ -220,8 +228,16 @@ hr{
 }
 /*Mes liens 'voir tout'*/
 .link-view{
-    font-family: 'Corleone';
+    font-family: 'Simpsonsfont';
+    color: goldenrod;
+    font-size: 1.5rem;
 }
+
+.link-view:hover{
+    text-decoration: none;
+    color: black;
+}
+
 
 .no-margin{
     margin: 0;
