@@ -16,7 +16,7 @@
             <div class="row no-margin">
                 <div class="col-12 text-center p-5">
                     <h1 class="custom-title">Mangas</h1>
-                    <p class="col-12 text-center harryP"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
+                    <p class="col-12 text-center font-alias"><a href="{{ path('catalogue_index') }}">Retour au catalogue</a></p>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                         <div class="card h-100 white-shadow">
                             <img src="{{ manga.poster }}" class="card-img-top" alt="Jurassic Park">
                             <div class="card-body">
-                                <a href="#" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ manga.title }}</bold></h5></a>
+                                <a href="{{ path('catalogue_manga_view') }}" title="Voir la fiche technique"><h5 class="card-title"><bold>{{ manga.title }}</bold></h5></a>
                                 <p class="card-text">{{ manga.summary }}</p>
                             </div>
                         </div>

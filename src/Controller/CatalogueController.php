@@ -133,12 +133,37 @@ class CatalogueController extends AbstractController
 
     /**
      * Page vue série seul
-     * @Route("/view/{slug}", name="serie_view", requirements={"id"="\d+"})
+     * @Route("/view/serie/{slug}", name="serie_view", requirements={"id"="\d+"})
+     *
+     *
      */
     public function serieView(Serie $serie){
         return $this->render('catalogue/serieView.html.twig', [
             'controller_name' => 'CatalogueController',
             'serie' => $serie
+        ]);
+    }
+
+    
+    // public function movieView(){
+
+    //     return $this->render('catalogue/movieView.html.twig', [
+    //         'controller_name' => 'CatalogueController',
+    //         'movie' => $movie
+
+    //     ]);
+    // }
+
+    /**
+     * Page vue manga seul
+     * @Route("/view/manga", name="manga_view")
+     *
+     */
+    public function mangaView(){
+
+        return $this->render('catalogue/mangaView.html.twig', [
+            'controller_name' => 'CatalogueController'
+
         ]);
     }
 
@@ -255,7 +280,7 @@ class CatalogueController extends AbstractController
     {
         $connectedUser = $this->getUser();        
 
-        $connectedUser->addFavoriteSerie($serie);
+        $connectedUser->addFavoriteSeries($serie);
 
 
 

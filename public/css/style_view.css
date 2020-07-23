@@ -1,0 +1,81 @@
+.img-view
+{
+   width: 100%;
+   height: 550px;
+}
+
+.view-title
+{
+   z-index: 1;
+   color: white;
+}
+
+.big-title
+{
+   font-size: 80px;
+   color: black;
+   font-family: 'Playfair Display', serif;
+   font-weight: bold;
+}
+
+.big-jurassic{
+   font-family: 'Playfair Display', serif;
+   color: darkgoldenrod;
+   font-size: 80px;
+}
+
+.view-button
+{
+   background-color: orange;
+   border: orange;
+   width: 15%;
+   font-weight: bold;
+   margin-top: 100px;
+}
+
+a:hover 
+{
+   color: black;
+   text-decoration: none;
+}
+
+a
+{
+   color: black;
+   text-decoration: none;
+}
+
+@media screen and (min-width: 355px) and (max-width: 769px)
+{
+   .img-view
+   {
+      width: 100%;
+      height: 450px;
+   }
+
+   .big-title
+   {
+      font-size: 45px;
+      color: goldenrod;
+   }
+
+   .view-button
+   {
+      background-color: orange;
+      border: orange;
+      width: 70%;
+      font-weight: bold;
+      margin-top: 50px;
+   }
+}
+
+.title-h4
+{
+   font-weight: bold;
+}
+
+.view-button-saison
+{
+   background-color: gray;
+   border: gray;
+}

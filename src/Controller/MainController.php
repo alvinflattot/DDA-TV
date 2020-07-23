@@ -68,7 +68,7 @@ class MainController extends AbstractController
             return $this->redirectToRoute('home');
         }
         // On envoi les movies récupérés à la vue
-        return $this->render('main/profil.html.twig',);
+        return $this->render('main/profil.html.twig');
     }
 
     /**
@@ -81,5 +81,13 @@ class MainController extends AbstractController
     }
 
 
+    /**
+     * Page mentions légales
+     * @Route("/mentions-legales", name="mentions_legales")
+     */
+    public function mentions()
+    {
+        return $this->render('main/mentionsLegales.html.twig');
+    }
   
 }
